@@ -1,5 +1,7 @@
 # CarKart-FrontEnd
 
+MIE350 Group 7 Project Frontend repo
+
 This template should help get you started developing with Vue 3 in Vite.
 
 ## Recommended IDE Setup
