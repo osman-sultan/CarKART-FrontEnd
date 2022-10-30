@@ -7,7 +7,7 @@ import CarCard from '../components/CarCard.vue'
     <div class = "container">
         <!--cards-->
         <div class="row justify-content-md-center g-3">
-            <CarCard imgSrc="images/Car1.jpg" price=50000, title="Listing Title" description="Listing Description" timePosted= "2 seconds ago"/>
+            <CarCard imgSrc={{images/Car1.jpg}} price=50000, title="Listing Title" description="Listing Description" timePosted= "2 seconds ago"/>
         </div>
 
         <!--page navigation-->
