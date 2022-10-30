@@ -42,7 +42,7 @@
                     <div class ="card-body">
                         <h5 class="card-title">Car 3 Listing</h5>
                         <p class="card-text">
-                            $50,000
+                            $85,000
                         </p>
                         <p class="card-text">
                             <p class="text-truncate">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
@@ -59,7 +59,7 @@
                     <div class ="card-body">
                         <h5 class="card-title">Car 4 Listing</h5>
                         <p class="card-text">
-                            $10 :(
+                            $10 :D
                         </p>
                         <p class="card-text">
                             <p class="text-truncate">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
@@ -70,5 +70,20 @@
                 </div>
             </div>
         </div>
+
+        <!--page navigation-->
+        <nav aria-label="car cards page navigation">
+            <ul class="pagination justify-content-end">
+                <li class="page-item disabled">
+                    <span class="page-link">Previous</span>
+                </li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#">Next</a>
+                </li>
+            </ul>
+        </nav>
     </div>
 </template>

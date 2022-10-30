@@ -3,3 +3,8 @@
   height: 30vh;
   object-fit: cover;
 }
+
+.pagination {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
