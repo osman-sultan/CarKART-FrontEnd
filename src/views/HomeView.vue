@@ -1,11 +1,11 @@
 <script setup>
-import CarCards from '../components/CarCards.vue'
+import CarCardDisplay from '../components/CarCardDisplay.vue'
 
 </script>
 
 <template>
   <main>
     OK  
-    <CarCards />
+    <CarCardDisplay />
   </main>
 </template>
