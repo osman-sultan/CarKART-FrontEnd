@@ -1,8 +1,9 @@
 <script setup>
+import KeywordSearch from '../components/KeywordSearch.vue'
 </script>
 
 <template>
   <main>
-    OK
+    <KeywordSearch/>
   </main>
 </template>
