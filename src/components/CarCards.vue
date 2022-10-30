@@ -7,11 +7,12 @@
                     <img src="images/Car1.jpg" class="card-img-top" alt="Car 1">
                     <div class ="card-body">
                         <h5 class="card-title">Car 1 Listing</h5>
+                        <h6 class="card-text">
+                            $10,000,000 :(
+                        </h6>
                         <p class="card-text">
-                            weeeeee
-                        </p>
-                        <p class="card-text">
-                            <small class="text-muted">nice</small>
+                            <p class="text-truncate">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                            <small class="text-muted">Posted 2 minutes ago</small>
                         </p>
                         <a href="#" class="btn btn-primary">View Listing</a>
                     </div>
@@ -24,10 +25,11 @@
                     <div class ="card-body">
                         <h5 class="card-title">Car 2 Listing</h5>
                         <p class="card-text">
-                            weeeeee
+                            $50,000
                         </p>
                         <p class="card-text">
-                            <small class="text-muted">nice</small>
+                            <p class="text-truncate">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                            <small class="text-muted">Posted 3 hours ago</small>
                         </p>
                         <a href="#" class="btn btn-primary">View Listing</a>
                     </div>
@@ -40,10 +42,11 @@
                     <div class ="card-body">
                         <h5 class="card-title">Car 3 Listing</h5>
                         <p class="card-text">
-                            weeeeee
+                            $50,000
                         </p>
                         <p class="card-text">
-                            <small class="text-muted">nice</small>
+                            <p class="text-truncate">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                            <small class="text-muted">Posted 1 day ago</small>
                         </p>
                         <a href="#" class="btn btn-primary">View Listing</a>
                     </div>
@@ -56,10 +59,11 @@
                     <div class ="card-body">
                         <h5 class="card-title">Car 4 Listing</h5>
                         <p class="card-text">
-                            weeeeee
+                            $10 :(
                         </p>
                         <p class="card-text">
-                            <small class="text-muted">nice</small>
+                            <p class="text-truncate">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                            <small class="text-muted">Posted 3 days ago</small>
                         </p>
                         <a href="#" class="btn btn-primary">View Listing</a>
                     </div>
