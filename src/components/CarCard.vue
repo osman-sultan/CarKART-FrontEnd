@@ -37,10 +37,10 @@ defineProps({
                     <h6 class="card-text">
                         {{price}}
                     </h6>
-                    <p class="card-text">
+                    <div class="card-text">
                         <p class="text-truncate">{{description}}</p>
                         <small class="text-muted">{{timePosted}}</small>
-                    </p>
+                    </div>
                     <a href="#" class="btn btn-primary">View Listing</a>
                 </div>
             </div>
