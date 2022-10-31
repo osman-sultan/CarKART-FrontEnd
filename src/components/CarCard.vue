@@ -9,7 +9,7 @@ defineProps({
         required: true
     },
     price: {
-        type: Number,
+        type: String,
         required: true
     },
     title: {
@@ -31,7 +31,7 @@ defineProps({
     <div class = "container">
         <div class="col-12 col-md-6 col-lg-3">
             <div class="card">
-                <img src={{imgSrc}} class="card-img-top" alt={{altText}}>
+                <img :src="imgSrc" class="card-img-top" alt={{altText}}>
                 <div class ="card-body">
                     <h5 class="card-title">{{title}}</h5>
                     <h6 class="card-text">
