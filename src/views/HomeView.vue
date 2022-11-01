@@ -1,20 +1,15 @@
 <script setup>
   import HelloWorld from '../components/HelloWorld.vue'
   import CarCardDisplay from '../components/CarCardDisplay.vue'
-
-import KeywordSearch from '../components/KeywordSearch.vue'
+  import KeywordSearch from '../components/KeywordSearch.vue'
 </script>
 
 <template>
   <main>
     <HelloWorld /> 
     <CarCardDisplay />
-  </main>
-</template>
-
-
-
-
     <KeywordSearch/>
   </main>
 </template>
+    
+
