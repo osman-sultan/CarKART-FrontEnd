@@ -1,6 +1,32 @@
 <script setup>
 import CarCard from '../components/CarCard.vue'
 
+defineProps({
+    imgSrc: {
+        type: String,
+        required: true
+    },
+    altText: {
+        type: String,
+        required: true
+    },
+    price: {
+        type: String,
+        required: true
+    },
+    title: {
+        type: String,
+        required: true
+    },
+    description: {
+        type: String,
+        required: true
+    },
+    timePosted: {
+        type: String,
+        required: true
+    },
+})
 </script>
 
 <template>
