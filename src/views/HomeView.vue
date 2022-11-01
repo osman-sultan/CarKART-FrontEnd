@@ -6,9 +6,7 @@
 
 <template>
   <main>
-    <HelloWorld /> 
     <CarCardDisplay />
-    <KeywordSearch/>
   </main>
 </template>
     
