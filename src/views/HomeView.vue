@@ -4,7 +4,7 @@
 
 <template>
   <main>
-    <HelloWorld msg="Yoyoyo!" />
+    <HelloWorld />
   </main>
 </template>
 
