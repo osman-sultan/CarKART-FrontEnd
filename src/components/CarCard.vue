@@ -1,44 +1,45 @@
 <script setup>
+import { ref, onMounted, nextTick} from 'vue';
+import axios  from 'axios'
 defineProps({
-    imgSrc: {
-        type: String,
-        required: true
-    },
-    altText: {
-        type: String,
-        required: true
-    },
-    price: {
-        type: String,
-        required: true
-    },
-    title: {
-        type: String,
-        required: true
-    },
-    description: {
-        type: String,
-        required: true
-    },
-    timePosted: {
-        type: String,
+    vehicle: {
+        type: Object, 
         required: true
     },
 })
-</script>
+
+async function del (id){
+        await axios
+        .delete('http://localhost:8085/cars/' + id)
+        .then(response => {
+        console.log(response)
+        })
+    }
+
+// async function update(id) {
+//     await axios
+//     .put('http://localhost:8085/cars/' + id,  {
+//           "id": numId,
+//           "firstName": this.form.first_name,
+//           "lastName": this.form.last_name,
+//           "email": this.form.email})
+    
+// }
+// </script>
 
 <template>
+    <h3>{{ count }}</h3>
     <div class = "container">
         <div class="col-12 col-md-6 col-lg-3">
             <div class="card">
-                <img :src="imgSrc" class="card-img-top" alt={{altText}}>
+                <img :src= "vehicle.company.logoURL" class="card-img-top" alt={{altText}}>
                 <div class ="card-body">
-                    <h5 class="card-title">{{title}}</h5>
+                    <h5 class="card-title">{{ vehicle.company.make }} {{vehicle.model}}</h5>
                     <h6 class="card-text">
-                        {{price}}
+                        ${{ vehicle.price }}
                     </h6>
                     <div class="card-text">
-                        <p class="text-truncate">{{description}}</p>
+                        <p class="text-truncate">Released: {{vehicle.releaseYear}}</p>
                         <small class="text-muted">{{timePosted}}</small>
                     </div>
                     <a href="#" class="btn btn-info">View Listing</a>
@@ -70,12 +71,12 @@ defineProps({
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                    <button type="button" class="btn btn-primary" @click="update(vehicle.id)">Save changes</button>
                                 </div>
                                 </div>
                             </div>
                             </div>
-                    <a href="#" class="btn btn-danger">Delete Listing</a>
+                    <button type="button" class="btn btn-danger" @click="del(vehicle.id)">Delete Listing</button>
                 </div>
             </div>
         </div>

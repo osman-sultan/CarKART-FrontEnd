@@ -1,39 +1,37 @@
 <script setup>
-import CarCard from '../components/CarCard.vue'
-
-defineProps({
-    imgSrc: {
-        type: String,
-        required: true
-    },
-    altText: {
-        type: String,
-        required: true
-    },
-    price: {
-        type: String,
-        required: true
-    },
-    title: {
-        type: String,
-        required: true
-    },
-    description: {
-        type: String,
-        required: true
-    },
-    timePosted: {
-        type: String,
-        required: true
-    },
+    import axios from 'axios';
+    import { ref, onMounted } from 'vue'
+    import CarCard from './CarCard.vue'
+    const name = ref('Cars')
+    const fields = ref([
+        {key: 'id', label: 'id', sortable: true},
+        {key: 'company.make', label: 'make', sortable: true},
+        {key: 'model', label: 'model', sortable: false},
+        {key:'releaseYear', label: 'releaseYear', sortable: true},
+        {key: 'fuelType', label: 'fuelType', sortable: false},
+        {key: 'price', label: 'price', sortable: true},
+        {key: 'vehicleType', label: 'vehicleType', sortable: false},
+        {key: 'hp', label: 'hp', sortable: true},
+        {key: 'mileage', label: 'mileage', sortable: true},
+        {key: 'colour', label: 'colour', sortable: false},
+        {key: 'transmission', label: 'transmission', sortable: false},
+    ],)
+    const cars = ref(null)
+    onMounted(async () => {
+        await axios
+        .get('http://localhost:8085/cars')
+        .then(response => {
+        cars.value = response.data
+        })
 })
+
 </script>
 
 <template>
     <div class = "container">
         <!--cards-->
         <div class="row justify-content-md-center g-3">
-            <CarCard imgSrc="images/Car1.jpg" altText="Car 1" price="$50000" title="Listing Title" description="Listing Description" timePosted= "2 seconds ago"/>
+            <CarCard v-for="car in cars" :vehicle="car"/>
         </div>
 
         <!--page navigation-->
