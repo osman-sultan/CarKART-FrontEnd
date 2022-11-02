@@ -18,24 +18,21 @@
   const reviews = ref(null)
   onMounted(async () => {
         await axios
-        .get('http://localhost:8085/reviews')
+        .get('http://localhost:8085/reviews/') //reviews/id
         .then(response => {
         reviews.value = response.data
         })
   })
 </script>
 
+<!--i don't know how to populate the table based on the specific car id~ -->
 <template>
   <div>
-    <b-table striped hover responsive :items="reviews" :fields="fields">
-      <template #cell(actions)="row">
-      </template>
-    </b-table>
+    
+    <!--insert table here-->
 
-    <p>
-      view reviews...
-      {{reviews}}
-    </p>
+    <p> HELP THIS SHOULD BE A TABLE </p>
+    {{reviews}}
   </div>
 </template>
 
