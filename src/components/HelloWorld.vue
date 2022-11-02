@@ -1,14 +1,14 @@
 <script setup>
-defineProps({
-  msg: {
-    type: String,
-    required: true
-  }
-})
+    import { ref } from 'vue'
+    const applyFilter = ref(false)
 </script>
 
 <template>
-  <div>
-    <h1>{{ msg }}</h1>
-  </div>
+<div class="form-check">
+    <input class="form-check-input" type="checkbox" id="flexCheckDefault" v-model="applyFilter">
+    <label class="form-check-label" for="flexCheckDefault">
+        Sedan
+    </label>
+    {{ applyFilter }}
+</div>
 </template>
