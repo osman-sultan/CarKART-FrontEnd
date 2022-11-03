@@ -7,11 +7,23 @@ import './assets/main.css'
 <template>
   <Header />
   <RouterView />
-  <footer class="bg-light">
+  <footer class="footer bg-light">
       <p>
           Disclaimer: This is not a professional website
       </p>
   </footer>
 </template>
+
+<style>
+.footer {
+  position: bottom;
+  padding-top: 20px;
+  padding-bottom: 16px;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+</style>
 
 
