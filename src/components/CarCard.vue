@@ -9,12 +9,9 @@
             required: true
         },
     })
-
-    async function del (id){
-        await axios
-        .delete('http://localhost:8085/cars/' + id)
-        .then(response => {console.log('deleted')
-        })
+    const emit = defineEmits(['delete-car'])
+    function del (id){
+        emit('delete-car', id)
     }
     const form = reactive({
         id: 1,
@@ -77,7 +74,7 @@
                 </h6>
                 <div class="card-text">
                     <p class="text-truncate">Released: {{vehicle.releaseYear}}</p>
-                    <small class="text-muted">{{timePosted}}</small>
+                    <small class="text-muted">{{ timePosted }}</small>
                 </div>
 
                 <!-- Button Group -->
@@ -120,27 +117,31 @@
                         </div>
                         <div class="modal-body">
                             <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Car Make</label>
+                            <input type='text' class="form-control" id="exampleFormControlInput1" placeholder='Audi' v-model="form.make">
+                            </div>
+                            <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Car Model</label>
                             <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Car Model" v-model="form.model">
                             </div>
                             <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label">Price</label>
-                            <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="0" v-model="form.price">
+                            <label for="exampleFormControlInput1" class="form-label">Price ($CAD)</label>
+                            <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="$0.00" v-model="form.price">
                             </div>
                             <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label">Car Make</label>
-                            <input type='text' class="form-control" id="exampleFormControlInput1" placeholder='Audi' v-model="form.make">
+                            <label for="exampleFormControlInput1" class="form-label">Release Year</label>
+                            <input type='text' class="form-control" id="exampleFormControlInput1" placeholder='2022' v-model="form.releaseYear">
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary" @click="update(form)">Save changes</button>
+                            <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary" @click="update(form)">Save changes</button>
                         </div>
                         </div>
                     </div>
                 </div>
 
-                <button type="button" class="btn btn-danger" @click="del(vehicle.id)">Delete Listing</button>
+                <button type="submit" class="btn btn-danger" @click="del(vehicle.id)">Delete Listing</button>
                 </div>
             </div>
         </div>

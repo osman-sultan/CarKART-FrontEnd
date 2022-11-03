@@ -8,13 +8,14 @@
             required: true,
         }
     })
+    const emit = defineEmits(['delete-car'])
 </script>
 
 <template>
     <div class = "container">
         <!--cards-->
         <div class="row justify-content-md-center g-3">
-            <CarCard :key="car.id" v-for="car in cars" :vehicle="car"/>
+            <CarCard @delete-car="$emit('delete-car', car.id)" :key="car.id" v-for="car in cars" :vehicle="car"/>
         </div>
 
         <!--page navigation-->
