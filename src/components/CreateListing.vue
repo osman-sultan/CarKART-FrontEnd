@@ -44,7 +44,7 @@ function create(form) {
 
 <template>
 <!-- Button trigger modal -->
-<div class="d-grid gap-2 col-3 mx-auto">
+<div class="d-flex p-3 justify-content-end">
 <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#createModal">
     Create Vehicle Listing
   </button>
