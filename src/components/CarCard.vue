@@ -1,5 +1,5 @@
 <script setup>
-    import { ref, onMounted, nextTick} from 'vue';
+    import { reactive, ref, onMounted, nextTick} from 'vue';
     import axios  from 'axios'
     import ViewReviews from './ViewReviews.vue'
 
@@ -16,7 +16,7 @@
         .then(response => {console.log('deleted')
         })
     }
-    const form = ref({
+    const form = reactive({
         id: 1,
         make: '',
         model: '',
@@ -30,9 +30,18 @@
         transmission: '',
     })
 
-    function fillForm(vehicle){
-        form.id.value
-
+    function fillForm(){
+        form.id = vehicle.id
+        form.make = vehicle.company.make 
+        form.model = vehicle.model
+        form.releaseYear = vehicle.releaseYear
+        form.fuelType = vehicle.fuelType
+        form.price = vehicle.price
+        form.vehicleType = vehicle.vehicleType
+        form.hp = vehicle.hp
+        form.mileage = vehicle.mileage
+        form.colour = vehicle.colour
+        form.transmission = vehicle.transmission
     }
     function update(form) {
         axios
@@ -62,7 +71,7 @@
             <div class="card">
                 <img :src= "vehicle.company.logoURL" class="card-img-top" alt={{altText}}>
                 <div class ="card-body">
-                    <h5 class="card-title">{{ vehicle.company.make }} {{vehicle.model}}</h5>
+                    <h5 class="card-title">{{vehicle.company.make }} {{vehicle.model}}</h5>
                     <h6 class="card-text">
                         ${{ vehicle.price }}
                     </h6>
@@ -72,7 +81,7 @@
                     </div>
 
                     <!-- Button trigger modal to view reviews -->
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#viewModal">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#viewModal" >
                     View Reviews
                     </button>
 
@@ -96,7 +105,7 @@
                         </div>
                         
                     <!-- Button trigger modal to edit listing-->
-                    <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#editModal">
+                    <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#editModal" @click="fillForm()">
                     Edit Listing
                     </button>
 
@@ -105,7 +114,7 @@
                         <div class="modal-dialog">
                             <div class="modal-content">
                             <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Listing</h1>
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Listing {{ form }}</h1>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
@@ -124,7 +133,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary" @click="update(form)">Save changes {{ vehicle }}</button>
+                                <button type="button" class="btn btn-primary" @click="update(form)">Save changes</button>
                             </div>
                             </div>
                         </div>
