@@ -8,7 +8,7 @@ import './assets/main.css'
   <Header />
   <RouterView />
   <footer class="bg-light">
-      <p class="footer-p">
+      <p class="footer">
           MIE350 Team 7
           <br>Disclaimer: This is not a professional website.
       </p>
@@ -16,8 +16,15 @@ import './assets/main.css'
 </template>
 
 <style>
-.footer-p {
-  padding-top:35px;
-  padding-bottom:35px;
+.footer {
+  position: bottom;
+  padding-top: 20px;
+  padding-bottom: 16px;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
 }
 </style>
+
+
