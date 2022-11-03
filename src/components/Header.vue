@@ -2,7 +2,9 @@
     <nav class="navbar navbar-expand-lg bg-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
-                Logo
+                <div class="logo">
+                    <img src="images/logo.png" class="img-fluid">
+                </div>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -34,6 +36,16 @@
         </div>
     </nav>
 </template>
+
+<style>
+    .logo{
+        width: 150px;
+        height: 70;
+        border-radius: 20%;
+        overflow: hidden;
+        margin-top: 20px;
+    }
+</style>
 
 <script setup>
 import { RouterLink } from 'vue-router'
