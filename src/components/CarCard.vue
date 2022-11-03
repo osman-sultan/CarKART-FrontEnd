@@ -61,6 +61,7 @@
         <div class="card">
             <img :src= "vehicle.company.logoURL" class="card-img-top" alt={{altText}}>
             <div class ="card-body">
+                <!-- Listing Content -->
                 <h5 class="card-title">{{ vehicle.company.make }} {{vehicle.model}}</h5>
                 <h6 class="card-text">
                     ${{ vehicle.price }}
@@ -70,8 +71,11 @@
                     <small class="text-muted">{{timePosted}}</small>
                 </div>
 
+                <!-- Button Group -->
+
                 <!-- Button trigger modal to view reviews -->
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#viewModal">
+                <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#viewModal">
                 View Listing
                 </button>
 
@@ -128,6 +132,7 @@
                 </div>
 
                 <button type="button" class="btn btn-danger" @click="del(vehicle.id)">Delete Listing</button>
+                </div>
             </div>
         </div>
     </div>
