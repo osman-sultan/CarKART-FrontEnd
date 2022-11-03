@@ -25,13 +25,13 @@
   })
 </script>
 
-<!--i don't know how to populate the table based on the specific car id~ -->
+<!--need to populate the table based on the specific car id-->
 <template>
   <div>
     
     <!--insert table here-->
 
-    <p> HELP THIS SHOULD BE A TABLE </p>
+    <p> Place reviews in tabular format </p>
     {{reviews}}
   </div>
 </template>

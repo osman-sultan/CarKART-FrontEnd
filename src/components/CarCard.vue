@@ -86,7 +86,7 @@
                             </div>
                             <div class="modal-body">
                                 <!--pass in the car or the car id??-->
-                                <ViewReviews/>
+                                <!--<ViewReviews/>-->
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
