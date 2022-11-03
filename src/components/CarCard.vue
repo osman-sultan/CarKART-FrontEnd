@@ -68,7 +68,7 @@
 <template>
     <div class="col-12 col-md-6 col-lg-3">
         <div class="card">
-            <img :src= "vehicle.company.logoURL" class="card-img-top" alt={{altText}}>
+            <img :src= "vehicle.carURL" class="card-img-top" alt={{altText}}>
             <div class ="card-body">
                 <!-- Listing Content -->
                 <h5 class="card-title">{{ vehicle.company.make }} {{vehicle.model}}</h5>
