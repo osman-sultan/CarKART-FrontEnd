@@ -2,21 +2,20 @@
     import axios from 'axios';
     import { ref, onMounted } from 'vue'
     import CarCard from './CarCard.vue'
-    const cars = ref(null)
-    onMounted(async () => {
-        await axios
-        .get('http://localhost:8085/cars')
-        .then(response => {
-            cars.value = response.data
-        })
+    defineProps({
+        cars: {
+            type: Array,
+            required: true,
+        }
     })
+    const emit = defineEmits(['delete-car'])
 </script>
 
 <template>
     <div class = "container">
         <!--cards-->
-        <div class="row justify-content-md-left g-3">
-            <CarCard v-for="car in cars" :vehicle="car"/>
+        <div class="row justify-content-md-center g-3">
+            <CarCard @delete-car="$emit('delete-car', car.id)" :key="car.id" v-for="car in cars" :vehicle="car"/>
         </div>
 
         <!--page navigation-->
