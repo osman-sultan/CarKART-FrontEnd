@@ -1,7 +1,8 @@
 <script setup>
   import axios from 'axios';
   import {ref, onMounted} from 'vue'
-
+  
+  /*
   defineProps({
     review: {
         type: Object, 
@@ -9,30 +10,60 @@
     }
   })
 
-  const name = ref('Reviews')
+  const reviewName = ref('Reviews')
+  const userName = ref('Users')
+
   const fields = ref([
     {key: 'review.user.firstName', label: 'First Name', sortable: true},
     {key: 'review.user.lastName', label: 'Last Name', sortable: true},
     {key: 'dateTimeStamp', label: 'Timestamp', sortable: true},
   ],)
+  */
+
   const reviews = ref(null)
+  const users = ref(null)
+
   onMounted(async () => {
         await axios
-        .get('http://localhost:8085/reviews/') //reviews/id
+        .get('http://localhost:8085/reviews/') 
         .then(response => {
         reviews.value = response.data
         })
   })
+  onMounted(async () => {
+        await axios
+        .get('http://localhost:8085/users/') 
+        .then(response => {
+        users.value = response.data
+        })
+  })
 </script>
 
-<!--need to populate the table based on the specific car id-->
 <template>
   <div>
-    
-    <!--insert table here-->
+    <h2> Reviews </h2>
 
-    <p> Place reviews in tabular format </p>
-    {{reviews}}
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">First Name</th>
+          <th scope="col">Last Name</th>
+          <th scope="col">Timestamp</th>
+          <th scope="col">Likes</th>
+          <th scope="col">Replies</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr v-for="review in reviews" :review="review">
+          <td>{{review.user.firstName}}</td>
+          <td>{{review.user.lastName}}</td>
+          <td>{{review.dateTimeStamp}}</td>
+          <td>{{review.likes}}</td>
+          <td>{{review.replies}}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </template>
 
