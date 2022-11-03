@@ -1,8 +1,13 @@
 <script setup>
+  import CreateListing from '../components/CreateListing.vue';
+  import CarCardDisplay from '../components/CarCardDisplay.vue';
 </script>
 
 <template>
   <main>
-    OK
+    <CreateListing />
+    <CarCardDisplay />
   </main>
 </template>
+    
+
