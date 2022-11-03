@@ -15,7 +15,7 @@
 <template>
     <div class = "container">
         <!--cards-->
-        <div class="row justify-content-md-center g-3">
+        <div class="row justify-content-md-left g-3">
             <CarCard v-for="car in cars" :vehicle="car"/>
         </div>
 
