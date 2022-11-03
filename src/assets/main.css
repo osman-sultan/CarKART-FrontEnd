@@ -1,7 +1,9 @@
 body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-
+footer {
+  text-align: center;
+}
 .contact{
   background-color: red;
 }
