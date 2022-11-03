@@ -9,12 +9,21 @@
     .get('http://localhost:8085/cars')
     .then(response => {listOfCars.value = response.data})
     })
+  async function deleteCar(id){
+    if (confirm('Are you sure?')){
+      await axios
+        .delete('http://localhost:8085/cars/' + id)
+        .then(response => {console.log('deleted')
+        })
+    }
+    listOfCars.value = listOfCars.value.filter((car) => car.id !== id)
+  }
 </script>
 
 <template>
   <main>
     <CreateListing />
-    <CarCardDisplay :cars="listOfCars" />
+    <CarCardDisplay @delete-car="deleteCar" :cars="listOfCars" />
   </main>
 </template>
     
