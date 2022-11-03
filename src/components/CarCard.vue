@@ -1,22 +1,22 @@
 <script setup>
-import { ref, onMounted, nextTick} from 'vue';
-import axios  from 'axios'
-import ViewReviews from './ViewReviews.vue'
+    import { ref, onMounted, nextTick} from 'vue';
+    import axios  from 'axios'
+    import ViewReviews from './ViewReviews.vue'
 
-defineProps({
-    vehicle: {
-        type: Object, 
-        required: true
-    },
-})
+    defineProps({
+        vehicle: {
+            type: Object, 
+            required: true
+        },
+    })
 
-async function del (id){
+    async function del (id){
         await axios
         .delete('http://localhost:8085/cars/' + id)
-        .then(response => {
+        .then(response => {console.log('deleted')
         })
     }
-    const form = ref([{
+    const form = ref({
         id: 1,
         make: '',
         model: '',
@@ -28,8 +28,12 @@ async function del (id){
         mileage: 0.0,
         colour: '',
         transmission: '',
-    },])
+    })
 
+    function fillForm(vehicle){
+        form.id.value
+
+    }
     function update(form) {
         axios
         .put('http://localhost:8085/cars/' + form.id,  {
@@ -107,20 +111,20 @@ async function del (id){
                             <div class="modal-body">
                                 <div class="mb-3">
                                 <label for="exampleFormControlInput1" class="form-label">Car Model</label>
-                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Car Model">
+                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Car Model" v-model="form.model">
                                 </div>
                                 <div class="mb-3">
                                 <label for="exampleFormControlInput1" class="form-label">Price</label>
-                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Price">
+                                <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="0" v-model="form.price">
                                 </div>
                                 <div class="mb-3">
-                                <label for="exampleFormControlTextarea1" class="form-label">Car Description</label>
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                <label for="exampleFormControlInput1" class="form-label">Car Make</label>
+                                <input type='text' class="form-control" id="exampleFormControlInput1" placeholder='Audi' v-model="form.make">
                                 </div>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary" @click="update(vehicle.id)">Save changes</button>
+                                <button type="button" class="btn btn-primary" @click="update(form)">Save changes {{ vehicle }}</button>
                             </div>
                             </div>
                         </div>
