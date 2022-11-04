@@ -1,44 +1,25 @@
 <script setup>
-import axios  from 'axios'
-import { ref, onMounted, nextTick} from 'vue';
+import { ref } from 'vue';
 
 const form = ref([{
-        id: 1,
+        id: null,
         make: '',
         model: '',
-        releaseYear: 0,
+        releaseYear: null,
         fuelType: '',
-        price: 0.0,
+        price: null,
         vehicleType: '',
-        hp: 0.0,
-        mileage: 0.0,
+        hp: null,
+        mileage: null,
         colour: '',
         transmission: '',
+        carURL: '',
     },])
-
-function create(form) {
-  console.log("Making a create request")
-  console.log(form)
-        axios
-        .post('http://localhost:8085/cars', {
-            "id": form.id,
-            "make": form.make,
-            "model": form.model,
-            "releaseYear": form.releaseYear,
-            "fuelType": form.fuelType,
-            "price": form.price,
-            "vehicleType": form.vehicleType,
-            "hp": form.hp,
-            "mileage": form.mileage,
-            "colour": form.colour,
-            "transmission": form.transmission,
-        })
-        .then(() => console.log("Created"))
-        .catch(function (error) {
-            console.log(error)
-        })
+    
+    const emit = defineEmits(['add-car'])
+    function create (form){
+        emit('add-car', form)
     }
-
 </script>
 
 
@@ -103,10 +84,14 @@ function create(form) {
             <label for="exampleFormControlInput11" class="form-label">Transmission</label>
             <input type="text" class="form-control" id="exampleFormControlInput11" v-model="form.transmission" placeholder="Transmission">
             </div>
+            <div class="mb-3">
+            <label for="exampleFormControlInput11" class="form-label">Image URL</label>
+            <input type="text" class="form-control" id="exampleFormControlInput11" v-model="form.carURL" placeholder="URL">
+            </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" @click="create(form)">Create Listing</button>
+          <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" @click="create(form)">Create Listing</button>
         </div>
       </div>
     </div>

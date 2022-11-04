@@ -25,6 +25,7 @@
         mileage: 0.0,
         colour: '',
         transmission: '',
+        carURL: 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/2019-honda-civic-sedan-1558453497.jpg?crop=1xw:0.9997727789138833xh;center,top&resize=480:*',
     })
 
     function fillForm(){
@@ -39,8 +40,10 @@
         form.mileage = vehicle.mileage
         form.colour = vehicle.colour
         form.transmission = vehicle.transmission
+        form.carURL = vehicle.carURL
     }
     function update(form) {
+        console.log(form)
         axios
         .put('http://localhost:8085/cars/' + form.id,  {
             "id": form.id,
@@ -54,6 +57,7 @@
             "mileage": form.mileage,
             "colour": form.colour,
             "transmission": form.transmission,
+            'carURL': form.carURL,
         })
         .then(() => console.log("Updated"))
         .catch(function (error) {
@@ -135,7 +139,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary" @click="update(form)">Save changes</button>
+                            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" @click="update(form)">Save changes</button>
                         </div>
                         </div>
                     </div>
