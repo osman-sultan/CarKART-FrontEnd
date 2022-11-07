@@ -42,13 +42,15 @@
     .catch(function (error) {
       console.log(error)
     })
+    console.log("Create request successful")
     axios
     .get('http://localhost:8085/cars')
     .then(response => {listOfCars.value = response.data})
   }
 
   async function updateCar(form){
-    console.log("Making a create request")
+    console.log(form)
+    console.log("Making an update request")
     await axios
     .put('http://localhost:8085/cars/' + form.id, {
       "id": form.id,
@@ -68,6 +70,7 @@
     .catch(function (error) {
       console.log(error)
     })
+    console.log("Update request successful")
     axios
     .get('http://localhost:8085/cars')
     .then(response => {listOfCars.value = response.data})
