@@ -5,10 +5,11 @@
   import axios from 'axios'
   
   const listOfCars = ref([])
-  onMounted(async () => {
+  const nextId = ref(0)
+  const init = onMounted(async () => {
     await axios
     .get('http://localhost:8085/cars')
-    .then(response => {listOfCars.value = response.data})
+    .then(response => {listOfCars.value = response.data, nextId.value = response.data[Object.keys(response.data).length - 1].id + 1})
     })
   
     async function deleteCar(id){
@@ -18,6 +19,7 @@
         .then(response => {console.log('deleted')
         })
         listOfCars.value = listOfCars.value.filter((car) => car.id !== id)
+        init()
     }
   }
 
@@ -43,9 +45,7 @@
       console.log(error)
     })
     console.log("Create request successful")
-    axios
-    .get('http://localhost:8085/cars')
-    .then(response => {listOfCars.value = response.data})
+    init()
   }
 
   async function updateCar(form){
@@ -71,9 +71,7 @@
       console.log(error)
     })
     console.log("Update request successful")
-    axios
-    .get('http://localhost:8085/cars')
-    .then(response => {listOfCars.value = response.data})
+    init()
   }
 </script>
 
@@ -82,12 +80,12 @@
     <!-- Button to trigger create modal -->
     <div class="d-flex p-3 justify-content-end">
       <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#createModal">
-        Create Vehicle Listing
+        Create Vehicle Listing 
       </button>
     </div>
     <CreateListing 
     @add-car="addCar"
-    :nextId = "Object.keys(listOfCars).length + 1"/>
+    :nextId = "nextId"/>
     <CarCardDisplay @delete-car="deleteCar" 
     @update-car="updateCar"  
     :cars="listOfCars" />
