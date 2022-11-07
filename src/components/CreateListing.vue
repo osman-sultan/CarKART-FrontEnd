@@ -46,7 +46,7 @@
 <template>
   <!-- Modal -->
   <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="creatingListing" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-dialog-scrollable">
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="creatingListing">Create Vehicle Listing</h1>
@@ -75,7 +75,7 @@
             </div>
             <div class="mb-3">
             <label for="exampleFormControlInput6" class="form-label">Price ($CAD)</label>
-            <input type="number" class="form-control" id="exampleFormControlInput6" v-model="form.price" placeholder="0">
+            <input type="number" class="form-control" id="exampleFormControlInput6" v-model="form.price" placeholder="$0.00">
             </div>
             <div class="mb-3">
             <label for="exampleFormControlInput7" class="form-label">Vehicle Type</label>
