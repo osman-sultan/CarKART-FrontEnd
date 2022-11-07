@@ -14,12 +14,13 @@
   
     async function deleteCar(id){
     if (confirm('Are you sure?')){
+      console.log("Making a delete request")
       await axios
-        .delete('http://localhost:8085/cars/' + id)
-        .then(response => {console.log('deleted')
-        })
-        listOfCars.value = listOfCars.value.filter((car) => car.id !== id)
-        init()
+      .delete('http://localhost:8085/cars/' + id)
+      .then(response => {console.log('deleted')})
+      listOfCars.value = listOfCars.value.filter((car) => car.id !== id)
+      console.log("Delete sucessfull")
+      init()
     }
   }
 
