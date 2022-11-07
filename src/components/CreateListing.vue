@@ -1,36 +1,49 @@
 <script setup>
-import { ref } from 'vue';
-
-const form = ref([{
-        id: null,
-        make: '',
-        model: '',
-        releaseYear: null,
-        fuelType: '',
-        price: null,
-        vehicleType: '',
-        hp: null,
-        mileage: null,
-        colour: '',
-        transmission: '',
-        carURL: '',
-    },])
-    
-    const emit = defineEmits(['add-car'])
-    function create (form){
-        emit('add-car', form)
+  import { ref } from 'vue';
+  defineProps({
+    nextId: {
+      type: Number,
+      required: true,
     }
+  })
+
+  const form = ref({
+      make: '',
+      model: '',
+      releaseYear: null,
+      fuelType: '',
+      price: null,
+      vehicleType: '',
+      hp: null,
+      mileage: null,
+      colour: '',
+      transmission: '',
+      carURL: '',
+  })
+  
+  function resetForm(){
+    form.value.make = ''
+    form.value.model = ''
+    form.value.releaseYear = null
+    form.value.fuelType = ''
+    form.value.price = null
+    form.value.vehicleType = ''
+    form.value.hp = null
+    form.value.mileage = ''
+    form.value.colour = ''
+    form.value.transmission = ''
+    form.value.carURL = ''
+  }
+
+  const emit = defineEmits(['add-car'])
+  function create (form, nextId){
+    emit('add-car', form, nextId)
+    resetForm()
+  }
+    
 </script>
 
-
 <template>
-<!-- Button trigger modal -->
-<div class="d-flex p-3 justify-content-end">
-<button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#createModal">
-    Create Vehicle Listing
-  </button>
-</div>
-
   <!-- Modal -->
   <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="creatingListing" aria-hidden="true">
     <div class="modal-dialog">
@@ -42,7 +55,7 @@ const form = ref([{
         <div class="modal-body">
           <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Car ID</label>
-            <input type="number" class="form-control" id="exampleFormControlInput1" v-model="form.id" placeholder="1">
+            <input type="number" class="form-control" id="exampleFormControlInput1" v-model="nextId" placeholder="0" disabled readonly>
             </div>
             <div class="mb-3">
             <label for="exampleFormControlInput2" class="form-label">Car Make</label>
@@ -91,7 +104,8 @@ const form = ref([{
         </div>
         <div class="modal-footer">
           <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" @click="create(form)">Create Listing</button>
+          <button type="button" class="btn btn-warning" @click="resetForm()">Reset</button>
+          <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" @click="create(form, nextId)">Create Listing</button>
         </div>
       </div>
     </div>
