@@ -9,7 +9,7 @@
   const init = onMounted(async () => {
     await axios
     .get('http://localhost:8085/cars')
-    .then(response => {listOfCars.value = response.data, nextId.value = response.data[Object.keys(response.data).length - 1].id + 1})
+    .then(response => {listOfCars.value = response.data, nextId.value = (Object.keys(response.data).length > 0) ? response.data[Object.keys(response.data).length - 1].id + 1 : 1})
     })
   
     async function deleteCar(id){
