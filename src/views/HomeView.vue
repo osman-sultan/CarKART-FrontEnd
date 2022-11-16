@@ -1,6 +1,7 @@
 <script setup>
   import CreateListing from '../components/CreateListing.vue';
   import CarCardDisplay from '../components/CarCardDisplay.vue';
+  import KeywordSearch from '../components/KeywordSearch.vue';
   import { ref, onMounted } from 'vue'
   import axios from 'axios'
   
@@ -77,6 +78,9 @@
 
 <template>
   <main>
+    <div>
+      <KeywordSearch/>
+    </div>
     <!-- Button to trigger create modal -->
     <div class="d-flex p-3 justify-content-end">
       <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#createModal">
