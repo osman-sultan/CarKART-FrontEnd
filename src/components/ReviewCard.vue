@@ -18,7 +18,7 @@ defineProps({
             <div class="buttonContainer">
                 <button type="button" class="btn btn-secondary">Edit review</button>
             </div>
-            <button type="button" class="btn btn-danger">Delete review</button>
+            <button type="button" class="btn btn-danger" @click="$emit('delete-review',review.id)">Delete review</button>
         </div>
     </div>
 </template>
