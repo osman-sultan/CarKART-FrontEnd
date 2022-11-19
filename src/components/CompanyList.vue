@@ -1,4 +1,4 @@
-<script>
+<script setup>
     import axios from 'axios';
     import {ref, onMounted} from 'vue'
 
@@ -9,10 +9,11 @@
 
     onMounted(async () => {
         await axios
-        .get('http://localhost:8085/company')
+        .get('http://localhost:8085/company/')
         .then(response => {
             companies.value = response.data
         })
+        console.log(companies);
     })
 </script>
 
@@ -28,16 +29,24 @@
                     <th scope="col">Year Founded</th>
                     <th scope="col">Headquarters</th>
                     <th scope="col">Logo</th>
+
                 </tr>
             </thead>
 
             <tbody>
                 <tr v-for="company in companies" :company="company">
+
                     <td>{{company.make}}</td>
                     <td>{{company.country}}</td>
                     <td>{{company.yearFounded}}</td>
                     <td>{{company.hq}}</td>
-                    <td>{{company.logoURL}}</td>
+                    <td>
+                    <img 
+                    :src="company.logoURL" 
+                    alt="Image of {{company.make}}" 
+                    class="w-25 p-3">
+                    </td>
+
                 </tr>
             </tbody>
         </table>
