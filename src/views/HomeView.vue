@@ -89,6 +89,7 @@
     <CarCardDisplay @delete-car="deleteCar" 
     @update-car="updateCar"  
     :cars="listOfCars" />
+    
   </main>
 </template>
     

@@ -3,7 +3,7 @@
 </script>
 
 <template>
-
-    <CompanyList/>
-
+    <div class="companies">
+        <CompanyList />
+    </div>
 </template>

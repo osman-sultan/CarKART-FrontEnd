@@ -21,7 +21,7 @@
                         <RouterLink class="nav-link" to="/users">Users</RouterLink>
                     </li>
                     <li class="nav-item">
-                        <RouterLink class="nav-link" to="/company">Company List</RouterLink>
+                        <RouterLink class="nav-link" to="/companies">Company List</RouterLink>
                     </li>
                 </ul>
                 <form class="dropdown">

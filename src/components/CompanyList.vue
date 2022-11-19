@@ -2,18 +2,21 @@
     import axios from 'axios';
     import {ref, onMounted} from 'vue'
 
-    const company = ref(null)
+    
+
+
+    const companies = ref(null)
 
     onMounted(async () => {
-        await axios.get('http://localhost:8085/company/')
+        await axios
+        .get('http://localhost:8085/company')
         .then(response => {
-            company.value = response.data
+            companies.value = response.data
         })
     })
 </script>
 
 <template>
-
     <div class ="container">
         <h2> Company List </h2>
 
@@ -29,7 +32,7 @@
             </thead>
 
             <tbody>
-                <tr v-for="company in company" :company="company">
+                <tr v-for="company in companies" :company="company">
                     <td>{{company.make}}</td>
                     <td>{{company.country}}</td>
                     <td>{{company.yearFounded}}</td>
