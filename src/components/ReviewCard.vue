@@ -16,7 +16,12 @@ defineProps({
         <div class="card-body">
             <p class="card-text">{{review.reviewText}}</p>
             <div class="buttonContainer">
-                <button type="button" class="btn btn-secondary">Edit review</button>
+                <button type="button" class="btn btn-secondary" 
+                @click="$emit('update-clicked', review.id, review.car.id, review.car.company.make, review.car.model)"
+                data-bs-toggle="modal" 
+                data-bs-target="#editReviewModal">
+                    Edit review
+                </button>
             </div>
             <button type="button" class="btn btn-danger" @click="$emit('delete-review',review.id)">Delete review</button>
         </div>
