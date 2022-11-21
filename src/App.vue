@@ -8,10 +8,10 @@ import './assets/main.css'
   <Header />
   <RouterView />
   <footer class="bg-light">
-      <p class="footer">
-          MIE350 Team 7
-          <br>Disclaimer: This is not a professional website.
-      </p>
+    <p class="footer">
+        MIE350 Team 7
+        <br>Disclaimer: This is not a professional website.
+    </p>
   </footer>
 </template>
 

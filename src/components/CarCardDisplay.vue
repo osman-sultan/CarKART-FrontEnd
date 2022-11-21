@@ -1,13 +1,26 @@
 <script setup>
     import CarCardContent from './CarCardContent.vue'
     import DeleteCar from './DeleteCar.vue'
-    import { ref } from 'vue';
+    import { ref, onMounted } from 'vue';
+    import axios from 'axios';
     defineProps({
         cars: {
             type: Array,
             required: true,
         }
     })
+
+    const listOfCompanies = ref([])
+
+    onMounted(() => {
+        axios
+        .get('http://localhost:8085/company/')
+        .then(response => {
+        for (let company in response.data){
+            listOfCompanies.value.push(response.data[company].make)
+        }})
+    })
+
     const emit = defineEmits(['delete-car', 'update-car'])
     function update(form){
         emit('update-car', form)
@@ -59,7 +72,6 @@
 </script>
 
 <template>
-
     <!-- Edit Modal -->
     <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="edit-title" aria-hidden="true">
         <div class="modal-dialog">
@@ -74,8 +86,8 @@
                         <input type="number" class="form-control" id="id" placeholder="1" v-model="form.id" disabled readonly>
                     </div>
                     <div class="mb-3">
-                        <label for="make" class="form-label">Car Make</label>
-                        <input type='text' class="form-control" id="make" placeholder="Honda" v-model="form.make">
+                        <label for="exampleFormControlInput2" class="form-label">Car Make</label>
+                        <v-select :options="listOfCompanies" label="title"></v-select>
                     </div>
                     <div class="mb-3">
                         <label for="model" class="form-label">Car Model</label>
