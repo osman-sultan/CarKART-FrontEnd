@@ -120,7 +120,7 @@
                 <div class="card">
                     <img 
                     :src="car.carURL" 
-                    alt="Image of {{ car.company.make car.model}}" 
+                    alt="Image of car" 
                     class="card-img-top">
                     <div class="card-body">
                         <CarCardContent :car="car"/>
