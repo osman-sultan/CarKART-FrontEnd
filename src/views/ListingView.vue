@@ -3,7 +3,7 @@
   import { ref, onMounted } from 'vue'
   import axios from 'axios'
 
-  defineProps({
+  const props = defineProps({
       id: {
         type: Number, 
         required: true
@@ -25,9 +25,9 @@
         carURL: '',
   })
 
-  onMounted(async (id) => {
+  onMounted(async () => {
     await axios
-    .get('http://localhost:8085/cars/' + 1) //hardcoded
+    .get('http://localhost:8085/cars/' + props.id) //hardcoded
     .then(response => {car.value = response.data})
   })
 </script>
