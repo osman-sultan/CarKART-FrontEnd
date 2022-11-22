@@ -27,7 +27,7 @@
 
   onMounted(async () => {
     await axios
-    .get('http://localhost:8085/cars/' + props.id) //hardcoded
+    .get('http://localhost:8085/cars/' + props.id) 
     .then(response => {car.value = response.data})
   })
 </script>
