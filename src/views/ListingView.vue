@@ -12,6 +12,7 @@
 
   const car = ref({
         id: 0,
+        company: {},
         make: '',
         model: '',
         releaseYear: 0,
