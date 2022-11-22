@@ -1,24 +1,6 @@
 <script setup>
   import axios from 'axios';
   import {ref, onMounted} from 'vue'
-  
-  /*
-  defineProps({
-    review: {
-        type: Object, 
-        required: true
-    }
-  })
-
-  const reviewName = ref('Reviews')
-  const userName = ref('Users')
-
-  const fields = ref([
-    {key: 'review.user.firstName', label: 'First Name', sortable: true},
-    {key: 'review.user.lastName', label: 'Last Name', sortable: true},
-    {key: 'dateTimeStamp', label: 'Timestamp', sortable: true},
-  ],)
-  */
 
   const reviews = ref(null)
   const users = ref(null)

@@ -1,6 +1,8 @@
 <script setup>
     import CarCardContent from './CarCardContent.vue'
     import DeleteCar from './DeleteCar.vue'
+    import { RouterLink } from 'vue-router'
+    
     import { ref, onMounted } from 'vue';
     import axios from 'axios';
     defineProps({
@@ -125,7 +127,11 @@
                     <div class="card-body">
                         <CarCardContent :car="car"/>
                         <div class="col d-flex justify-content-center">
-                            <button type="submit" class="btn btn-primary me-1">View Listing</button>
+                            <!--pass in the car prop-->
+
+                            <RouterLink class="listing" :to="{name: 'listing', params:{id: car.id}}">
+                                <button type="submit" class="btn btn-primary me-1">View Listing</button>
+                            </RouterLink>
                             <button 
                             type="button" 
                             class="btn btn-secondary me-1"

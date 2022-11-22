@@ -1,6 +1,7 @@
 <script setup>
   import CreateListing from '../components/CreateListing.vue';
   import CarCardDisplay from '../components/CarCardDisplay.vue';
+
   import { ref, onMounted } from 'vue'
   import axios from 'axios'
   
@@ -12,7 +13,7 @@
     .then(response => {listOfCars.value = response.data, nextId.value = (Object.keys(response.data).length > 0) ? response.data[Object.keys(response.data).length - 1].id + 1 : 1})
   })
   
-    async function deleteCar(id){
+  async function deleteCar(id){
     if (confirm('Are you sure?')){
       console.log("Making a delete request")
       await axios
