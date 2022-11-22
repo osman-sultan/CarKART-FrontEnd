@@ -25,7 +25,6 @@ const init = onMounted(async () => {
 })
 
 function updateClicked(reviewId, carId, carMake, carModel) {
-    console.log('update clicked')
     reviewDto.value.id = reviewId
     reviewDto.value.carId = carId
     reviewDto.value.carMake = carMake
@@ -49,21 +48,25 @@ async function deleteReview(reviewId) {
 
 async function updateReview(reviewForm) {
     console.log(reviewForm)
-    console.log("Making an update request")
-    await axios
-    .put('http://localhost:8085/reviews/' + reviewForm.id, {
-      "id": reviewForm.id,
-      "userId": 1, //placeholder, will be changed to the id of the user who has logged in
-      "carId": reviewForm.carId,
-      "dateTimeStamp":(new Date()).toUTCString(),
-      "reviewText": reviewForm.reviewText
-    })
-    .then(response => {[...listOfReviews.value, response.data]})
-    .catch(function (error) {
-      console.log(error)
-    })
-    console.log("Update request successful")
-    init()
+    if (reviewForm.reviewText) {
+        console.log("Making an update request")
+        await axios
+        .put('http://localhost:8085/reviews/' + reviewForm.id, {
+        "id": reviewForm.id,
+        "userId": 1, //placeholder, will be changed to the id of the user who has logged in
+        "carId": reviewForm.carId,
+        "dateTimeStamp":(new Date()).toUTCString(),
+        "reviewText": reviewForm.reviewText
+        })
+        .then(response => {[...listOfReviews.value, response.data]})
+        .catch(function (error) {
+        console.log(error)
+        })
+        console.log("Update request successful")
+        init()
+    } else {
+        alert("You must enter text in order to update your review.")
+    }
 }
 
 </script>
