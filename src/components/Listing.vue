@@ -1,4 +1,5 @@
 <script setup>
+  import "../assets/features.css";
   defineProps({
     id: {
       type: Number, 
@@ -9,6 +10,7 @@
       required: true
     },
   })
+
 </script>
 
 
@@ -31,7 +33,6 @@
   </div>
 
   <!--car specifications svgs-->
-  <link href="features.css" rel="stylesheet">
   <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
   <symbol id="bootstrap" viewBox="0 0 118 94">
     <title>Bootstrap</title>

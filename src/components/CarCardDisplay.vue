@@ -117,7 +117,7 @@
     <div class="container">
         <div class="row g-3">
             <div class="col-12 col-md-6 col-lg-4"
-            :key="car.id" 
+            :key="parseInt(car.id)" 
             v-for="car in cars">
                 <div class="card">
                     <img 
@@ -129,7 +129,7 @@
                         <div class="col d-flex justify-content-center">
                             <!--pass in the car prop-->
 
-                            <RouterLink class="listing" :to="{name: 'listing', params:{id: car.id}}">
+                            <RouterLink class="listing" :to="{name: 'listing', params:{id: parseInt(car.id)}}">
                                 <button type="submit" class="btn btn-primary me-1">View Listing</button>
                             </RouterLink>
                             <button 
