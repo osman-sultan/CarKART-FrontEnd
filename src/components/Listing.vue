@@ -13,6 +13,39 @@
 
 
 <template>
+  <!--Create Review Form-->
+  <div class="modal fade" id="createReviewModal" tabindex="-1" aria-labelledby="create-review-title" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="create-review-title">Create your review</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label for="carId" class="form-label">Car Id</label>
+                    <input type="number" class="form-control" :placeholder="id" disabled readonly>
+                </div>
+                <div class="mb-3">
+                    <label for="carId" class="form-label">Car Company</label>
+                    <input type="text" class="form-control" :placeholder="car.company.make" disabled readonly>
+                </div>
+                <div class="mb-3">
+                    <label for="carId" class="form-label">Car Model</label>
+                    <input type="text" class="form-control" :placeholder="car.model" disabled readonly>
+                </div>
+                <div class="mb-3">
+                    <textarea class="form-control" rows="3" ></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-warning" >Reset</button>
+                <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
+            </div>
+        </div>
+    </div>
+  </div>
+
   <!--car image-->
   <div class="container col-xxxl-8 px-4 py-5">
     <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
@@ -32,7 +65,7 @@
         <div class="d-grid gap-3 d-md-flex justify-content-md-start">
           <button type="button" class="btn btn-primary btn-lg px-4 ">Contact Seller</button>
           <button type="button" class="btn btn-outline-secondary btn-lg px-4">Generate comparison</button>
-          <button type="button" class="btn btn-primary btn-lg px-4">Write a Review</button>
+          <button type="button" class="btn btn-primary btn-lg px-4" data-bs-toggle="modal" data-bs-target="#createReviewModal">Write a Review</button>
         </div>
       </div>
     </div>
