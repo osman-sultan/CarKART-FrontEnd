@@ -24,6 +24,9 @@
                     <li class="nav-item">
                         <RouterLink class="nav-link" to="/users">Users</RouterLink>
                     </li>
+                    <li class="nav-item">
+                        <RouterLink class="nav-link" to="/compare">Compare</RouterLink>
+                    </li>
                 </ul>
                 <form class="dropdown">
                     <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

@@ -13,10 +13,7 @@
   onMounted(() => {
     axios
     .get('http://localhost:8085/company/')
-    .then(response => {
-      for (let company in response.data){
-        listOfCompanies.value.push(response.data[company].make)
-      }})
+    .then(response => {listOfCompanies.value = response.data})
   })
 
   const form = ref({
@@ -71,7 +68,12 @@
             </div>
             <div class="mb-3">
               <label for="exampleFormControlInput2" class="form-label">Car Make</label>
-              <v-select :options="listOfCompanies" label="title"></v-select>
+              <v-select :options="listOfCompanies" label="make" v-model="form.make">
+                <template v-slot:option="option">
+                  <img :src="option.logoURL" class="selectLogos" />
+                    {{option.make}}
+                </template>
+              </v-select>
             </div>
             <div class="mb-3">
               <label for="exampleFormControlInput3" class="form-label">Car Model</label>
@@ -123,3 +125,11 @@
     </div>
   </div>
 </template>
+
+<style scoped>
+  .selectLogos{
+    height: 2em;
+    width: 2em;
+    margin-right: 1em;
+  }
+</style>

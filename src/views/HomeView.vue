@@ -29,7 +29,7 @@
     await axios
     .post('http://localhost:8085/cars', {
       "id": nextId,
-      "make": form.make,
+      "make": form.make.make,
       "model": form.model,
       "releaseYear": form.releaseYear,
       "fuelType": form.fuelType,
@@ -55,7 +55,7 @@
     await axios
     .put('http://localhost:8085/cars/' + form.id, {
       "id": form.id,
-      "make": form.make,
+      "make": form.make.make,
       "model": form.model,
       "releaseYear": form.releaseYear,
       "fuelType": form.fuelType,

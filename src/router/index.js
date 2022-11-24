@@ -31,6 +31,11 @@ const router = createRouter({
       component: ListingView,
       props: true,
     },
+    {
+      path: "/compare",
+      name: "compare",
+      component: () => import("../views/CompareView.vue"),
+    }
   ],
 });
 

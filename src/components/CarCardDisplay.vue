@@ -17,10 +17,7 @@
     onMounted(() => {
         axios
         .get('http://localhost:8085/company/')
-        .then(response => {
-        for (let company in response.data){
-            listOfCompanies.value.push(response.data[company].make)
-        }})
+        .then(response => {listOfCompanies.value = response.data})
     })
 
     const emit = defineEmits(['delete-car', 'update-car'])
@@ -41,7 +38,6 @@
         form.value.transmission = ''
         form.value.carURL = ''
     }
-
     const form = ref({
         id: 0,
         make: '',
@@ -89,7 +85,12 @@
                     </div>
                     <div class="mb-3">
                         <label for="exampleFormControlInput2" class="form-label">Car Make</label>
-                        <v-select :options="listOfCompanies" label="title"></v-select>
+                        <v-select :options="listOfCompanies" label="make" v-model="form.make">
+                            <template v-slot:option="option">
+                            <img :src="option.logoURL" class="selectLogos" />
+                            {{option.make}}
+                            </template>
+                        </v-select>
                     </div>
                     <div class="mb-3">
                         <label for="model" class="form-label">Car Model</label>
@@ -169,5 +170,11 @@
 <style scoped>
     img {
         object-fit: contain;
+    }
+
+    .selectLogos {
+        height: 2em;
+        width: 2em;
+        margin-right: 1em;
     }
 </style>
