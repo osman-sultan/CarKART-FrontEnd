@@ -29,9 +29,10 @@
             Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
           </p>
         </p>
-        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-          <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Contact Seller</button>
+        <div class="d-grid gap-3 d-md-flex justify-content-md-start">
+          <button type="button" class="btn btn-primary btn-lg px-4 ">Contact Seller</button>
           <button type="button" class="btn btn-outline-secondary btn-lg px-4">Generate comparison</button>
+          <button type="button" class="btn btn-primary btn-lg px-4">Write a Review</button>
         </div>
       </div>
     </div>
