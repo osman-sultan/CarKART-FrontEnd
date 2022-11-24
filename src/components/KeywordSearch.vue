@@ -9,21 +9,12 @@
 </template>
 
 <script setup>
-  import axios from 'axios';
-  import {ref, onMounted} from 'vue'
 
+    const query =''
 
-  // search(searchTerm){
-  //     if(searchTerm){
-  //       axios
-  //       .get('http://localhost:8085/cars/search/model/'+ searchTerm)
-  //       .then(response => (this.students =response.data))
-  //       .catch(function (error){
-  //         if(error.response){
-  //           console.log(error.response.data);
-  //         }
-  //       })
-  //     }
-  //     console.log(searchTerm)
-  //   };
+    const emit = defineEmits(['search-car'])
+    function search (query){
+        emit('search-car', query)
+    }
+
 </script>

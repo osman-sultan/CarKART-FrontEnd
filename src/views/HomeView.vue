@@ -74,12 +74,26 @@
     console.log("Update request successful")
     init()
   }
+
+  function searchCar(searchTerm){
+    console.log(searchTerm)
+    console.log("Making an search request")
+    if(searchTerm){
+      axios
+      .get('http://localhost:8085/cars/search/model/'+ searchTerm)
+      .then(response => {listOfCars.value = response.data, nextId.value = (Object.keys(response.data).length > 0) ? response.data[Object.keys(response.data).length - 1].id + 1 : 1})
+      .catch(function (error) {
+      console.log(error)
+      })
+    }
+  }
+
 </script>
 
 <template>
   <main>
     <div>
-      <KeywordSearch/>
+      <KeywordSearch @search-car="searchCar"/>
     </div>
     <!-- Button to trigger create modal -->
     <div class="d-flex p-3 justify-content-end">
