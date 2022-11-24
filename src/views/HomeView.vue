@@ -1,6 +1,7 @@
 <script setup>
   import CreateListing from '../components/CreateListing.vue';
   import CarCardDisplay from '../components/CarCardDisplay.vue';
+  import Filter from '../components/Filter.vue';
   import { ref, onMounted } from 'vue'
   import axios from 'axios'
   
@@ -73,6 +74,15 @@
     console.log("Update request successful")
     init()
   }
+
+  async function filterModel(model){
+    console.log(model)
+    await axios.get('http://localhost:8085/cars/search/model/'+ model)
+    .then(response => {listOfCars.value = response.data, nextId.value = (Object.keys(response.data).length > 0) ? response.data[Object.keys(response.data).length - 1].id + 1 : 1})
+    .catch(function (error) {
+      console.log(error)
+    })
+  }
 </script>
 
 <template>
@@ -89,7 +99,7 @@
     <CarCardDisplay @delete-car="deleteCar" 
     @update-car="updateCar"  
     :cars="listOfCars" />
-    
+    <Filter @filter-model="filterModel"/>
   </main>
 </template>
     
