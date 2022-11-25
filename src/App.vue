@@ -7,7 +7,7 @@
 <template>
   <Header />
   <RouterView />
-  <footer class="bg-light">
+  <footer class="bg-light mt-5">
     <p class="footer">
       MIE350 Team 7
       <br>Disclaimer: This is not a professional website.

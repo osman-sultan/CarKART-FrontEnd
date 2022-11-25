@@ -46,6 +46,13 @@
 
   const emit = defineEmits(['add-car'])
   function create (form, nextId){
+    if (
+            typeof form.make === 'object' &&
+            !Array.isArray(form.make) &&
+            form.make !== null
+        ){
+            form.make = form.make.make
+        }
     emit('add-car', form, nextId)
     resetForm()
   }

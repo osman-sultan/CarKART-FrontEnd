@@ -85,24 +85,25 @@
 
 <template>
   <main>
-    <div class="container pt-4 d-flex justify-content-center">
-      <div class="row g-3">
-        <div class="col input-group mb-3 ">
-          <input type="text" class="form-control " placeholder="Search for a listing!" aria-label="Search for a listing" v-model.trim="search">
-          <div class="input-group-append">
-            <span class="input-group-text">
-              <i class="bi bi-search"></i>
-            </span>
+    <div class="container p-4">
+      <form class="row row-cols-lg-auto g-3 align-items-center justify-content-center">
+        <div class="col-12 d-flex justify-content-center w-75">
+          <label class="visually-hidden" for="inlineFormInputGroupUsername">Username</label>
+          <div class="input-group">
+            <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Searching for a listing..." v-model="search">
+            <div class="input-group-text"><i class="bi bi-search"></i></div>
           </div>
         </div>
+
         <!-- Button to trigger create modal -->
-        <div class="col">
+        <div class="col-12 d-flex justify-content-center">
           <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#createModal">
             Create Vehicle Listing 
           </button>
         </div>
-      </div>
+      </form>
     </div>
+
     <CreateListing 
     @add-car="addCar"
     :nextId = "nextId"/>

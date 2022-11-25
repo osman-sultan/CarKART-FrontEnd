@@ -157,7 +157,7 @@
             </div>
         </div>
         
-        <!--page navigation-->
+        <!-- page navigation
         <nav aria-label="car cards page navigation">
             <ul class="pagination justify-content-end">
                 <li class="page-item disabled">
@@ -170,7 +170,7 @@
                     <a class="page-link" href="#">Next</a>
                 </li>
             </ul>
-        </nav>
+        </nav> -->
     </div>
 </template>
 
