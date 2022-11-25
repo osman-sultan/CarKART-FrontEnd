@@ -86,20 +86,18 @@
   })
 
   const companyFilter = ref([])
-  const listOfCompanies = ref([])
   
-  watch(companyFilter, () =>{
-    if(companyFilter.value){
-      filteredCars.value = listOfCars.value.filter(car => car.company.make.includes)
-    }
+  watch(companyFilter, () => {
+    filteredCars.value = listOfCars.value.filter(listOfCars.some(car => car.company.make.includes(companyFilter)))
   })
 </script>
 
 <template>
   <main>
+    <div>{{ companyFilter }}</div>
     <div class="form-check m-4" v-for="car in listOfCars">
-      <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked v-model="companyFilter">
-      <label class="form-check-label" for="flexCheckChecked" >
+      <input class="form-check-input" type="checkbox" :id="car.company.make" :value="car.company.make" v-model="companyFilter">
+      <label class="form-check-label" :for="car.company.make">
         {{ car.company.make }}
       </label>
     </div>
