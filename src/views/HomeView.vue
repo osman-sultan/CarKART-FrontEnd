@@ -2,15 +2,16 @@
   import CreateListing from '../components/CreateListing.vue';
   import CarCardDisplay from '../components/CarCardDisplay.vue';
 
-  import { ref, onMounted } from 'vue'
+  import { ref, onMounted, watch } from 'vue'
   import axios from 'axios'
   
   const listOfCars = ref([])
+  const filteredCars = ref([])
   const nextId = ref(0)
   const init = onMounted(async () => {
     await axios
     .get('http://localhost:8085/cars')
-    .then(response => {listOfCars.value = response.data, nextId.value = (Object.keys(response.data).length > 0) ? response.data[Object.keys(response.data).length - 1].id + 1 : 1})
+    .then(response => {listOfCars.value = response.data, filteredCars.value = response.data, nextId.value = (Object.keys(response.data).length > 0) ? response.data[Object.keys(response.data).length - 1].id + 1 : 1})
   })
   
   async function deleteCar(id){
@@ -29,7 +30,7 @@
     await axios
     .post('http://localhost:8085/cars', {
       "id": nextId,
-      "make": form.make.make,
+      "make": form.make,
       "model": form.model,
       "releaseYear": form.releaseYear,
       "fuelType": form.fuelType,
@@ -55,7 +56,7 @@
     await axios
     .put('http://localhost:8085/cars/' + form.id, {
       "id": form.id,
-      "make": form.make.make,
+      "make": form.make,
       "model": form.model,
       "releaseYear": form.releaseYear,
       "fuelType": form.fuelType,
@@ -74,23 +75,45 @@
     console.log("Update request successful")
     init()
   }
+
+  const search = ref("")
+
+  watch(search, () => {
+    filteredCars.value = listOfCars.value.filter(car => car.model.toLowerCase().includes(search.value.toLowerCase()) || car.company.make.toLowerCase().includes(search.value.toLowerCase()))
+  })
 </script>
 
 <template>
   <main>
-    <!-- Button to trigger create modal -->
-    <div class="d-flex p-3 justify-content-end">
-      <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#createModal">
-        Create Vehicle Listing 
-      </button>
+    <div class="container pt-4 d-flex justify-content-center">
+      <div class="row g-3">
+        <div class="col input-group mb-3 ">
+          <input type="text" class="form-control " placeholder="Search for a listing!" aria-label="Search for a listing" v-model.trim="search">
+          <div class="input-group-append">
+            <span class="input-group-text">
+              <i class="bi bi-search"></i>
+            </span>
+          </div>
+        </div>
+        <!-- Button to trigger create modal -->
+        <div class="col">
+          <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#createModal">
+            Create Vehicle Listing 
+          </button>
+        </div>
+      </div>
     </div>
     <CreateListing 
     @add-car="addCar"
     :nextId = "nextId"/>
     <CarCardDisplay @delete-car="deleteCar" 
     @update-car="updateCar"  
-    :cars="listOfCars" />
+    :cars="filteredCars" />
   </main>
 </template>
+
+<style>
+  @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css");
+</style>
     
 

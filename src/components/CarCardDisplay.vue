@@ -22,6 +22,13 @@
 
     const emit = defineEmits(['delete-car', 'update-car'])
     function update(form){
+        if (
+            typeof form.make === 'object' &&
+            !Array.isArray(form.make) &&
+            form.make !== null
+        ){
+            form.make = form.make.make
+        }
         emit('update-car', form)
     }
 

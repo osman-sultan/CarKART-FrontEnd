@@ -11,10 +11,12 @@ import "./assets/main.css";
 import axios from "axios";
 import VueAxios from "vue-axios";
 
+import InstantSearch from "vue-instantsearch/vue3/es";
 import vSelect from "vue-select";
 
 const app = createApp(App);
 
+app.use(InstantSearch);
 app.use(router);
 app.use(VueAxios, axios);
 app.component("v-select", vSelect);
