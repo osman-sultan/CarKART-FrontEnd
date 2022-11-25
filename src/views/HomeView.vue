@@ -80,11 +80,29 @@
 
   watch(search, () => {
     filteredCars.value = listOfCars.value.filter(car => car.model.toLowerCase().includes(search.value.toLowerCase()) || car.company.make.toLowerCase().includes(search.value.toLowerCase()))
+    // let car = document.getElementById("car");
+    // let pattern = new RegExp(`${search}`, "gi")
+    // car.innerHTML = car.textContent.replace(pattern, match => `<mark>${match}</mark>`)
+  })
+
+  const companyFilter = ref([])
+  const listOfCompanies = ref([])
+  
+  watch(companyFilter, () =>{
+    if(companyFilter.value){
+      filteredCars.value = listOfCars.value.filter(car => car.company.make.includes)
+    }
   })
 </script>
 
 <template>
   <main>
+    <div class="form-check m-4" v-for="car in listOfCars">
+      <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked v-model="companyFilter">
+      <label class="form-check-label" for="flexCheckChecked" >
+        {{ car.company.make }}
+      </label>
+    </div>
     <div class="container p-4">
       <form class="row row-cols-lg-auto g-3 align-items-center justify-content-center">
         <div class="col-12 d-flex justify-content-center w-75">
