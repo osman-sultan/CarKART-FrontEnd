@@ -1,4 +1,6 @@
 <script setup>
+  import axios from 'axios';
+  import {ref, onMounted} from 'vue';
   defineProps({
     id: {
       type: Number, 
@@ -9,6 +11,55 @@
       required: true
     },
   })
+
+  //dto for creating a review about the car
+  const reviewDto = ref({})
+
+  //a list of reviews is needed to determine the id of any future reviews created
+  const listOfReviews = ref([])
+  //the id of any future review added
+  const currentReviewId = ref()
+
+  const init = onMounted(async () => {
+    await axios
+    .get("http://localhost:8085/reviews")
+    .then((response) => {
+      listOfReviews.value = response.data
+      // determine the id of the next review to add as the last id in the list + 1
+      currentReviewId.value = listOfReviews.value[listOfReviews.value.length - 1].id + 1
+      reviewDto.value = {
+        reviewText:'',
+      }
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+  })
+
+  const createReview = async (reviewDto, carId) => {
+    if (reviewDto.reviewText) {
+      await axios
+      .post("http://localhost:8085/reviews", {
+        "id": currentReviewId.value,
+        "userId": 1, 
+        "carId": carId,
+        "dateTimeStamp": (new Date()).toUTCString(),
+        "reviewText": reviewDto.reviewText
+      })
+      .then(response => {[...listOfReviews.value, response.data]})
+      .catch((error) => {
+        console.log(error)
+      })
+      alert("Review Created!")
+      init()
+    } else {
+      alert("You must enter text for your review")
+    }
+  }
+
+  function resetReviewForm() {
+    reviewDto.value.reviewText = ''
+  }
 </script>
 
 
@@ -35,12 +86,12 @@
                     <input type="text" class="form-control" :placeholder="car.model" disabled readonly>
                 </div>
                 <div class="mb-3">
-                    <textarea class="form-control" rows="3" ></textarea>
+                    <textarea class="form-control" rows="3" v-model="reviewDto.reviewText"></textarea>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-warning" >Reset</button>
-                <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
+                <button type="button" class="btn btn-warning" @click="resetReviewForm()">Reset</button>
+                <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" @click="createReview(reviewDto, car.id)">Create Review</button>
             </div>
         </div>
     </div>
