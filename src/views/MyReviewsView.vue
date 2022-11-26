@@ -1,5 +1,5 @@
 <script setup>
-import ReviewCard from '../components/ReviewCard.vue';
+import MyReviewCard from '../components/ReviewCard.vue';
 import {ref, onMounted} from 'vue';
 import axios from 'axios';
 
@@ -109,7 +109,7 @@ async function updateReview(reviewForm) {
         <h2>My Reviews</h2>
         <div class="reviewDisplay">
             <div v-for="review in listOfReviews" class="cardHolder">
-                <ReviewCard :review="review" @delete-review="deleteReview" @update-clicked="updateClicked"/>
+                <MyReviewCard :review="review" @delete-review="deleteReview" @update-clicked="updateClicked"/>
             </div>
         </div>
     </main>
