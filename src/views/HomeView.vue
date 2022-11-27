@@ -96,10 +96,12 @@
     <CreateListing 
     @add-car="addCar"
     :nextId = "nextId"/>
+
+    <Filter @filter-model="filterModel"/>
     <CarCardDisplay @delete-car="deleteCar" 
     @update-car="updateCar"  
     :cars="listOfCars" />
-    <Filter @filter-model="filterModel"/>
+    
   </main>
 </template>
     

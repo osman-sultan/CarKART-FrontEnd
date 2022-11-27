@@ -38,17 +38,33 @@
                 </div>
             </div>
             </div>
-            <div class = "row" id = "product-list">
-                <div class = ''>
-                    <div class = "product-item">
-                        <div class = "product-content"> 
-                            <span class = "">product</span>
 
-                        </div>
-                    </div>
-                </div>
+
+
+        <div class="form-check">
+            <div v-for="car in cars" :car="car">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" @click="filter(car.model)">
+                <label class="form-check-label" for="flextRadioDefault1">
+                    {{car.model}}
+                </label>
             </div>
+
         </div>
+
+        <h1>Checkbox</h1>
+
+        <div class="form-check">
+            <div v-for="car in cars" :car="car">
+                <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexCheckDefault1" @click="filter(car.model)">
+                <label class="form-check-label" for="flextCheckDefault1">
+                    {{car.model}}
+                </label>
+            </div>
+
+        </div>
+    
+    </div>
+
 
     
     
