@@ -1,6 +1,7 @@
 <script setup>
   import axios from 'axios';
   import {ref, onMounted} from 'vue';
+  import "../assets/features.css";
   defineProps({
     id: {
       type: Number, 
@@ -123,7 +124,6 @@
   </div>
 
   <!--car specifications svgs-->
-  <link href="features.css" rel="stylesheet">
   <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
     
   <!--

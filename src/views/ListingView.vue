@@ -35,5 +35,5 @@
 
 
 <template>
-  <Listing :id="id" :car="car"/> 
+  <Listing :id="parseInt(props.id)" :car="car"/> 
 </template>

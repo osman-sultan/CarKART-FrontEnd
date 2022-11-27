@@ -1,7 +1,8 @@
 import { createRouter, createWebHistory } from "vue-router";
-import ContactView from "../views/ContactView.vue";
 import HomeView from "../views/HomeView.vue";
+import LoginView from "../views/LoginView.vue";
 import ListingView from "../views/ListingView.vue";
+import RegisterView from "../views/RegisterView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -14,9 +15,6 @@ const router = createRouter({
     {
       path: "/about",
       name: "about",
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
       component: () => import("../views/AboutView.vue"),
     },
     {
@@ -27,7 +25,7 @@ const router = createRouter({
     {
       path: "/contact",
       name: "contact",
-      component: ContactView,
+      component: () => import("../views/ContactView.vue"),
     },
     {
       path:"/myReviews",
@@ -40,6 +38,23 @@ const router = createRouter({
       component: ListingView,
       props: true,
     },
+    {
+      path: "/compare",
+      name: "compare",
+      component: () => import("../views/CompareView.vue"),
+    },
+    {
+      path: "/login",
+      name: "login",
+      component: LoginView,
+      props: true,
+    },
+    {
+      path: "/register",
+      name: "register",
+      component: RegisterView,
+      props: true,
+    }
   ],
 });
 
