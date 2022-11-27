@@ -1,15 +1,34 @@
 <script setup>
     import CarCardContent from './CarCardContent.vue'
     import DeleteCar from './DeleteCar.vue'
-    import { ref } from 'vue';
+    import { RouterLink } from 'vue-router'
+    
+    import { ref, onMounted } from 'vue';
+    import axios from 'axios';
     defineProps({
         cars: {
             type: Array,
             required: true,
         }
     })
+
+    const listOfCompanies = ref([])
+
+    onMounted(() => {
+        axios
+        .get('http://localhost:8085/company/')
+        .then(response => {listOfCompanies.value = response.data})
+    })
+
     const emit = defineEmits(['delete-car', 'update-car'])
     function update(form){
+        if (
+            typeof form.make === 'object' &&
+            !Array.isArray(form.make) &&
+            form.make !== null
+        ){
+            form.make = form.make.make
+        }
         emit('update-car', form)
     }
 
@@ -26,7 +45,6 @@
         form.value.transmission = ''
         form.value.carURL = ''
     }
-
     const form = ref({
         id: 0,
         make: '',
@@ -59,7 +77,6 @@
 </script>
 
 <template>
-
     <!-- Edit Modal -->
     <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="edit-title" aria-hidden="true">
         <div class="modal-dialog">
@@ -74,8 +91,13 @@
                         <input type="number" class="form-control" id="id" placeholder="1" v-model="form.id" disabled readonly>
                     </div>
                     <div class="mb-3">
-                        <label for="make" class="form-label">Car Make</label>
-                        <input type='text' class="form-control" id="make" placeholder="Honda" v-model="form.make">
+                        <label for="exampleFormControlInput2" class="form-label">Car Make</label>
+                        <v-select :options="listOfCompanies" label="make" v-model="form.make">
+                            <template v-slot:option="option">
+                            <img :src="option.logoURL" class="selectLogos" />
+                            {{option.make}}
+                            </template>
+                        </v-select>
                     </div>
                     <div class="mb-3">
                         <label for="model" class="form-label">Car Model</label>
@@ -103,17 +125,21 @@
     <div class="container">
         <div class="row g-3">
             <div class="col-12 col-md-6 col-lg-4"
-            :key="car.id" 
+            :key="parseInt(car.id)" 
             v-for="car in cars">
                 <div class="card">
                     <img 
                     :src="car.carURL" 
-                    alt="Image of {{ car.company.make car.model}}" 
+                    alt="Image of car" 
                     class="card-img-top">
                     <div class="card-body">
                         <CarCardContent :car="car"/>
                         <div class="col d-flex justify-content-center">
-                            <button type="submit" class="btn btn-primary me-1">View Listing</button>
+                            <!--pass in the car prop-->
+
+                            <RouterLink class="listing" :to="{name: 'listing', params:{id: parseInt(car.id)}}">
+                                <button type="submit" class="btn btn-primary me-1">View Listing</button>
+                            </RouterLink>
                             <button 
                             type="button" 
                             class="btn btn-secondary me-1"
@@ -131,7 +157,7 @@
             </div>
         </div>
         
-        <!--page navigation-->
+        <!-- page navigation
         <nav aria-label="car cards page navigation">
             <ul class="pagination justify-content-end">
                 <li class="page-item disabled">
@@ -144,12 +170,18 @@
                     <a class="page-link" href="#">Next</a>
                 </li>
             </ul>
-        </nav>
+        </nav> -->
     </div>
 </template>
 
 <style scoped>
     img {
         object-fit: contain;
+    }
+
+    .selectLogos {
+        height: 2em;
+        width: 2em;
+        margin-right: 1em;
     }
 </style>

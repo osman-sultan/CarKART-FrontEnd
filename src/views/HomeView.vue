@@ -1,19 +1,20 @@
 <script setup>
   import CreateListing from '../components/CreateListing.vue';
   import CarCardDisplay from '../components/CarCardDisplay.vue';
-  import KeywordSearch from '../components/KeywordSearch.vue';
-  import { ref, onMounted } from 'vue'
+
+  import { ref, onMounted, watch } from 'vue'
   import axios from 'axios'
   
   const listOfCars = ref([])
+  const filteredCars = ref([])
   const nextId = ref(0)
   const init = onMounted(async () => {
     await axios
     .get('http://localhost:8085/cars')
-    .then(response => {listOfCars.value = response.data, nextId.value = (Object.keys(response.data).length > 0) ? response.data[Object.keys(response.data).length - 1].id + 1 : 1})
-    })
+    .then(response => {listOfCars.value = response.data, filteredCars.value = response.data, nextId.value = (Object.keys(response.data).length > 0) ? response.data[Object.keys(response.data).length - 1].id + 1 : 1})
+  })
   
-    async function deleteCar(id){
+  async function deleteCar(id){
     if (confirm('Are you sure?')){
       console.log("Making a delete request")
       await axios
@@ -75,39 +76,61 @@
     init()
   }
 
-  function searchCar(searchTerm){
-    console.log(searchTerm)
-    console.log("Making an search request")
-    if(searchTerm){
-      axios
-      .get('http://localhost:8085/cars/search/model/'+ searchTerm)
-      .then(response => {listOfCars.value = response.data, nextId.value = (Object.keys(response.data).length > 0) ? response.data[Object.keys(response.data).length - 1].id + 1 : 1})
-      .catch(function (error) {
-      console.log(error)
-      })
-    }
-  }
+  const search = ref("")
 
+  watch(search, () => {
+    filteredCars.value = listOfCars.value.filter(car => car.model.toLowerCase().includes(search.value.toLowerCase()) || car.company.make.toLowerCase().includes(search.value.toLowerCase()))
+    // let car = document.getElementById("car");
+    // let pattern = new RegExp(`${search}`, "gi")
+    // car.innerHTML = car.textContent.replace(pattern, match => `<mark>${match}</mark>`)
+  })
+
+  const companyFilter = ref([])
+  
+  watch(companyFilter, () => {
+    filteredCars.value = listOfCars.value.filter(listOfCars.some(car => car.company.make.includes(companyFilter)))
+  })
 </script>
 
 <template>
   <main>
-    <div>
-      <KeywordSearch @search-car="searchCar"/>
+    <div>{{ companyFilter }}</div>
+    <div class="form-check m-4" v-for="car in listOfCars">
+      <input class="form-check-input" type="checkbox" :id="car.company.make" :value="car.company.make" v-model="companyFilter">
+      <label class="form-check-label" :for="car.company.make">
+        {{ car.company.make }}
+      </label>
     </div>
-    <!-- Button to trigger create modal -->
-    <div class="d-flex p-3 justify-content-end">
-      <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#createModal">
-        Create Vehicle Listing 
-      </button>
+    <div class="container p-4">
+      <form class="row row-cols-lg-auto g-3 align-items-center justify-content-center">
+        <div class="col-12 d-flex justify-content-center w-75">
+          <label class="visually-hidden" for="inlineFormInputGroupUsername">Username</label>
+          <div class="input-group">
+            <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Searching for a listing..." v-model="search">
+            <div class="input-group-text"><i class="bi bi-search"></i></div>
+          </div>
+        </div>
+
+        <!-- Button to trigger create modal -->
+        <div class="col-12 d-flex justify-content-center">
+          <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#createModal">
+            Create Vehicle Listing 
+          </button>
+        </div>
+      </form>
     </div>
+
     <CreateListing 
     @add-car="addCar"
     :nextId = "nextId"/>
     <CarCardDisplay @delete-car="deleteCar" 
     @update-car="updateCar"  
-    :cars="listOfCars" />
+    :cars="filteredCars" />
   </main>
 </template>
+
+<style>
+  @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css");
+</style>
     
 
