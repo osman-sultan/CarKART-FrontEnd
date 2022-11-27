@@ -1,5 +1,5 @@
 <script setup>
-import MyReviewCard from '../components/ReviewCard.vue';
+import MyReviewCard from '../components/MyReviewCard.vue';
 import {ref, onMounted} from 'vue';
 import axios from 'axios';
 
