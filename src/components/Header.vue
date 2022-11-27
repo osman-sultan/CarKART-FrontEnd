@@ -25,6 +25,9 @@
                         <RouterLink class="nav-link" to="/users">Users</RouterLink>
                     </li>
                     <li class="nav-item">
+                        <RouterLink class="nav-link" to="/myReviews">My Reviews</RouterLink>
+                    </li>
+                    <li class="nav-item">
                         <RouterLink class="nav-link" to="/compare">Compare</RouterLink>
                     </li>
                 </ul>

@@ -11,18 +11,19 @@
   })
 
   const car = ref({
-    id: 0,
-    make: '',
-    model: '',
-    releaseYear: 0,
-    fuelType: '',
-    price: 0,
-    vehicleType: '',
-    hp: 0,
-    mileage: 0,
-    colour: '',
-    transmission: '',
-    carURL: '',
+        id: 0,
+        company: {},
+        make: '',
+        model: '',
+        releaseYear: 0,
+        fuelType: '',
+        price: 0,
+        vehicleType: '',
+        hp: 0,
+        mileage: 0,
+        colour: '',
+        transmission: '',
+        carURL: '',
   })
 
   onMounted(async () => {
