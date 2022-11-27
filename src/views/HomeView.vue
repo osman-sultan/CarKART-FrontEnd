@@ -1,6 +1,7 @@
 <script setup>
   import CreateListing from '../components/CreateListing.vue';
   import CarCardDisplay from '../components/CarCardDisplay.vue';
+  import KeywordSearch from '../components/KeywordSearch.vue';
 
   import { ref, onMounted, watch } from 'vue'
   import axios from 'axios'
@@ -76,14 +77,11 @@
     init()
   }
 
-  const search = ref("")
-
-  watch(search, () => {
-    filteredCars.value = listOfCars.value.filter(car => car.model.toLowerCase().includes(search.value.toLowerCase()) || car.company.make.toLowerCase().includes(search.value.toLowerCase()))
-    // let car = document.getElementById("car");
-    // let pattern = new RegExp(`${search}`, "gi")
-    // car.innerHTML = car.textContent.replace(pattern, match => `<mark>${match}</mark>`)
-  })
+  async function searchCar(searchResults){
+      console.log("Making a search request")
+      filteredCars.value = searchResults.value
+  }
+ 
 
   const companyFilter = ref([])
   
@@ -103,13 +101,10 @@
     </div>
     <div class="container p-4">
       <form class="row row-cols-lg-auto g-3 align-items-center justify-content-center">
-        <div class="col-12 d-flex justify-content-center w-75">
-          <label class="visually-hidden" for="inlineFormInputGroupUsername">Username</label>
-          <div class="input-group">
-            <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Searching for a listing..." v-model="search">
-            <div class="input-group-text"><i class="bi bi-search"></i></div>
-          </div>
-        </div>
+        <KeywordSearch
+        :listOfCars="listOfCars"
+        @search-car="searchCar"/>
+
 
         <!-- Button to trigger create modal -->
         <div class="col-12 d-flex justify-content-center">
