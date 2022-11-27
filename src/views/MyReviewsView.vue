@@ -105,11 +105,12 @@ async function updateReview(reviewForm) {
                 </div>
             </div>
         </div>
-
-        <h2>My Reviews</h2>
-        <div class="reviewDisplay">
-            <div v-for="review in listOfReviews" class="cardHolder">
-                <MyReviewCard :review="review" @delete-review="deleteReview" @update-clicked="updateClicked"/>
+        <div class="container">
+            <h2>My Reviews</h2>
+            <div class="reviewDisplay">
+                <div v-for="review in listOfReviews" class="cardHolder">
+                    <MyReviewCard :review="review" @delete-review="deleteReview" @update-clicked="updateClicked"/>
+                </div>
             </div>
         </div>
     </main>
@@ -123,6 +124,6 @@ async function updateReview(reviewForm) {
 }
 .cardHolder {
     padding-bottom: 1%;
-    width:80%;
+    width:100%;
 }
 </style>
