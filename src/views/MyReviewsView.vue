@@ -52,14 +52,14 @@ async function deleteReview(reviewId) {
     }
 }
 
-async function updateReview(reviewForm) {
+async function updateReview(reviewForm, userId) {
     console.log(reviewForm)
     if (reviewForm.reviewText) {
         console.log("Making an update request")
         await axios
         .put('http://localhost:8085/reviews/' + reviewForm.id, {
         "id": reviewForm.id,
-        "userId": 1, //placeholder, will be changed to the id of the user who has logged in
+        "userId": userId, //placeholder, will be changed to the id of the user who has logged in
         "carId": reviewForm.carId,
         "dateTimeStamp":(new Date()).toUTCString(),
         "reviewText": reviewForm.reviewText
@@ -106,7 +106,7 @@ async function updateReview(reviewForm) {
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-warning" @click="resetReviewForm()">Reset</button>
-                        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" @click="updateReview(reviewDto)">Save changes</button>
+                        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" @click="updateReview(reviewDto, userId)">Save changes</button>
                     </div>
                 </div>
             </div>

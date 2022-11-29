@@ -1,5 +1,5 @@
 <script setup>
-  import axios from 'axios';
+import axios from 'axios';
   import {ref, onMounted} from 'vue';
   import "../assets/features.css";
   defineProps({
@@ -11,6 +11,10 @@
       type: Object, 
       required: true
     },
+    userId: {
+      type: Number,
+      required: true
+    }
   })
 
   //dto for creating a review about the car
@@ -37,12 +41,12 @@
     })
   })
 
-  const createReview = async (reviewDto, carId) => {
+  const createReview = async (reviewDto,userId, carId) => {
     if (reviewDto.reviewText) {
       await axios
       .post("http://localhost:8085/reviews", {
         "id": currentReviewId.value,
-        "userId": 1, 
+        "userId": userId, 
         "carId": carId,
         "dateTimeStamp": (new Date()).toUTCString(),
         "reviewText": reviewDto.reviewText
@@ -92,7 +96,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-warning" @click="resetReviewForm()">Reset</button>
-                <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" @click="createReview(reviewDto, car.id)">Create Review</button>
+                <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" @click="createReview(reviewDto,userId, car.id)">Create Review</button>
             </div>
         </div>
     </div>

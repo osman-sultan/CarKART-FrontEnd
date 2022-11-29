@@ -8,6 +8,10 @@
         type: Number, 
         required: true
       },
+      userId: {
+        type: Number,
+        required: true
+      }
   })
 
   const car = ref({
@@ -35,5 +39,5 @@
 
 
 <template>
-  <Listing :id="parseInt(props.id)" :car="car"/> 
+  <Listing :id="parseInt(props.id)" :car="car" :userId="props.userId"/> 
 </template>

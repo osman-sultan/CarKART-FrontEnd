@@ -9,6 +9,10 @@
         cars: {
             type: Array,
             required: true,
+        },
+        userId: {
+            type: Number,
+            required: true
         }
     })
 
@@ -137,7 +141,7 @@
                         <div class="col d-flex justify-content-center">
                             <!--pass in the car prop-->
 
-                            <RouterLink class="listing" :to="{name: 'listing', params:{id: parseInt(car.id)}}">
+                            <RouterLink class="listing" :to="{name: 'listing', params:{id: parseInt(car.id), userId: userId}}">
                                 <button type="submit" class="btn btn-primary me-1">View Listing</button>
                             </RouterLink>
                             <button 

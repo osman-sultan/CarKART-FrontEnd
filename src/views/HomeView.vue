@@ -5,6 +5,13 @@
 
   import { ref, onMounted, watch } from 'vue'
   import axios from 'axios'
+
+  const props = defineProps({
+    userId: {
+      type: Number,
+      required: true
+    }
+  })
   
   const listOfCars = ref([])
   const filteredCars = ref([])
@@ -140,7 +147,8 @@
           :nextId = "nextId"/>
           <CarCardDisplay @delete-car="deleteCar" 
           @update-car="updateCar"  
-          :cars="filteredCars" />
+          :cars="filteredCars" 
+          :userId="props.userId"/>
         </div>
       </div>
     </div>
