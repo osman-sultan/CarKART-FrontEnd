@@ -23,7 +23,7 @@
     users.value.forEach(function(user) {
       if (user.username == form.username && user.password == form.password) {
         alert('Login Successful!')
-        router.push('/home')
+        router.push('/home/'+user.id)
         emit('login',user.id)
         verified = true
       }
