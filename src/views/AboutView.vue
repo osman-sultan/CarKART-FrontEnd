@@ -1,5 +1,6 @@
 <template>
   <div class="about container">
+    <p></p>
     <h3>Purpose</h3>
       <p>According to Kantar’s 2017 Auto Shopper Study, approximately one in two car buyers commence their search for purchasing vehicles using online resources [1]. Thus, there is great potential for the user journey to influence consumer behaviour.</p>
 
@@ -7,7 +8,7 @@
       <p>CARKart is an online marketplace that connects car buyers and sellers. Sellers can browse through car listings through functionalities including creating or viewing car listings, using search filters, sharing or viewing customer reviews, and generating car comparisons. The target audience are adults ages 18 and above. On average, buyers only examine and compare approximately 3.3 car brands when shopping [1]. Thus, it shows a lack of market awareness of buyers which limits their purchasing options. This web application aims to help buyers gain autonomy in the buying process by providing information including pricing, pictures, comparisons and reviews to help them make an informed purchasing decision.</p>
 
     <h3>About the Team</h3>
-      <p>This is an undergraduate term project for MIE350. Our team consists of 7 members studying Industrial Engineering at the University of Toronto</p>
+      <p>This is an undergraduate term project for MIE350. Our team consists of 7 members studying Industrial Engineering at the University of Toronto.</p>
      
     <div class="card-group">
 
@@ -18,7 +19,7 @@
                     width="10" height="10"
                     class="card-img-top">
           <div class="card-body">
-        <h5 class="card-title text-center">Kevin Kim</h5>
+        <h5 class="card-title text-center">Kevin Kim <a href="https://www.linkedin.com/in/kevinsunghookim/"><i class="bi bi-linkedin"></i></a></h5>
         </div>
       </div>
 
@@ -29,7 +30,7 @@
                     width="10" height="10"
                     class="card-img-top">
           <div class="card-body">
-        <h5 class="card-title text-center">Vanathi Anpalagan</h5>
+        <h5 class="card-title text-center">Vanathi Anpalagan <a href="https://www.linkedin.com/in/vanathianpalagan/"><i class="bi bi-linkedin"></i></a></h5>
         </div>
       </div>
 
@@ -40,7 +41,7 @@
                     width="10" height="10"
                     class="card-img-top">
           <div class="card-body">
-        <h5 class="card-title text-center">Osman Sultan</h5>
+        <h5 class="card-title text-center">Osman Sultan <a href="https://www.linkedin.com/in/osmansultan-/"><i class="bi bi-linkedin"></i></a></h5>
         </div>
       </div>
 
@@ -51,7 +52,7 @@
                     width="10" height="10"
                     class="card-img-top">
           <div class="card-body">
-        <h5 class="card-title text-center">Michael Iaccino</h5>
+        <h5 class="card-title text-center">Michael Iaccino <a href="https://www.linkedin.com/in/michaeliaccino/"><i class="bi bi-linkedin"></i></a></h5>
         </div>
       </div>
 
@@ -62,7 +63,7 @@
                     width="10" height="10"
                     class="card-img-top">
           <div class="card-body">
-        <h5 class="card-title text-center">Michelle Lai</h5>
+        <h5 class="card-title text-center">Michelle Lai <a href="https://www.linkedin.com/in/michellemxlai/"><i class="bi bi-linkedin"></i></a></h5>
         </div>
       </div>
 
@@ -73,7 +74,7 @@
                     width="10" height="10"
                     class="card-img-top">
           <div class="card-body">
-        <h5 class="card-title text-center">Anton Mlynczyk</h5>
+        <h5 class="card-title text-center">Anton Mlynczyk <a href="https://www.linkedin.com/in/antonmlynczyk/"><i class="bi bi-linkedin"></i></a></h5>
         </div>
       </div>
 
@@ -84,7 +85,7 @@
                     width="10" height="10"
                     class="card-img-top">
           <div class="card-body">
-        <h5 class="card-title text-center">Adam Stechishin</h5>
+        <h5 class="card-title text-center">Adam Stechishin <a href="https://www.linkedin.com/in/adam-stechishin-986329211/"><i class="bi bi-linkedin"></i></a></h5>
         </div>
       </div>
       </div>
@@ -93,18 +94,60 @@
 
 
     <h3>Relevant Websites</h3>
-      <p>A reasonable collection of links, effectively organized and identified to help site visitors find the sites of key other content sites (e.g., businesses, other communities) that are directly relevant</p>
+      <p>A reasonable collection of links, effectively organized and identified to help site visitors find the sites of key other content sites (e.g., businesses, other communities) that are directly relevant.</p>
 
       <p>Car Companies:</p>
       <ul class="list-group">
         <li class="list-group-item" >
-          <a href="https://www.bmw.ca/en/home.html">BMW</a> - Bayerische Motoren Werke AG, is a German multinational manufacturer of performance luxury vehicles and motorcycles headquartered in Munich, Bavaria, Germany.
+          <a href="https://www.bmw.ca/en/home.html">BMW</a> - Founded in the year 1916, Bayerische Motoren Werke AG is located in Germany
         </li>
         <li class="list-group-item">
-          <a href="https://www.seat.com/">Seat</a> - SEAT S.A. is a Spanish car manufacturer, which sells its vehicles under the SEAT and Cupra brands.
+          <a href="https://www.seat.com/">Seat</a> - Founded in the year 1950, Sociedad Española de Automóviles de Turismo is located in Spain
         </li>
         <li class="list-group-item">
-          <a href="https://www.vw.ca/en.html">Volkswagen</a> - Volkswagen, is a German motor vehicle manufacturer headquartered in Wolfsburg, Lower Saxony, Germany.
+          <a href="https://www.vw.ca/en.html">Volkswagen</a> - Founded in the year 1937, Volkswagen is located in Germany
+        </li>
+        <li class="list-group-item">
+          <a href="https://www.renault.fr/">Renault</a> - Founded in the year 1898, the Renault Group is located in France
+        </li>
+        <li class="list-group-item">
+          <a href="https://www.peugeot.com/en/">Peugeot</a> - Founded in the year 1896, Peugeot is located in France
+        </li>
+        <li class="list-group-item">
+          <a href="https://www.toyota.ca/toyota/en/">Toyota</a> - Founded in the year 1937, the Toyota Motor Corporation is located in Japan
+        </li>
+        <li class="list-group-item">
+          <a href="https://www.opel.com/">Opel</a> - Founded in the year 1862, Opel Automobile is located in Germany
+        </li>
+        <li class="list-group-item">
+          <a href="https://www.mazda.ca/">Mazda</a> - Founded in the year 1920, the Mazda Motor Corporation is located in Japan
+        </li>
+        <li class="list-group-item">
+          <a href="https://www.ford.ca/">Ford</a> - Founded in the year 1903, the Ford Motor Company is located in the USA
+        </li>
+        <li class="list-group-item">
+          <a href="https://www.mercedes-benz.ca/en/home">Mercedes-Benz</a> - Founded in the year 1926, Mercedes-Benz is located in Germany
+        </li>
+        <li class="list-group-item">
+          <a href="https://www.chevrolet.ca/en">Chevrolet</a> - Founded in the year 1911, the Chevrolet Motor Division of General Motors Company is located in the USA
+        </li>
+        <li class="list-group-item">
+          <a href="https://www.audi.ca/ca/web/en.html">Audi</a> - Founded in the year 1909, Audi AG is located in Germany
+        </li>
+        <li class="list-group-item">
+          <a href="https://www.fiatcanada.com/en">Fiat</a> - Founded in the year 1899, Fiat Automobiles S.p.A. is located in Italy
+        </li>
+        <li class="list-group-item">
+          <a href="https://www.kia.ca/">Kia</a> - Founded in the year 1944, Kia Corporation is located in South Korea
+        </li>
+        <li class="list-group-item">
+          <a href="https://www.dacia.co.uk/">Dacia</a> - Founded in the year 1966, S.C. Automobile Dacia S.A. is located in Romania
+        </li>
+        <li class="list-group-item">
+          <a href="https://www.mini.ca/">MINI</a> - Founded in the year 1969, MINI is located in the UK
+        </li>
+        <li class="list-group-item">
+          <a href="https://www.hyundaicanada.com/">Hyundai</a> - Founded in the year 1967, the Hyundai Motor Company is located in South Korea
         </li>
       </ul>
       <p>
@@ -114,13 +157,9 @@
       <p>Website made using:</p>
       <ul class="list-group">
         <li class="list-group-item" >
-          <a href="https://getbootstrap.com/">Bootstrap</a>
-        </li>
-        <li class="list-group-item">
-          <a href="https://vuejs.org/">Vue</a>
-        </li>
-        <li class="list-group-item">
-          <a href="https://vuejs.org/">A third item</a>
+          <a href="https://getbootstrap.com/">Bootstrap</a> , 
+          <a href="https://vuejs.org/">Vue</a> , 
+          <a href="https://www.kaggle.com/datasets/ander289386/cars-germany">Kaggle Car Data</a>
         </li>
       </ul>
 
