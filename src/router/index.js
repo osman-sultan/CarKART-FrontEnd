@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import LoginView from "../views/LoginView.vue";
+import CompanyList from "../views/CompanyList.vue";
 import ListingView from "../views/ListingView.vue";
 import RegisterView from "../views/RegisterView.vue";
 import MyReviewsView from "../views/MyReviewsView.vue";
@@ -22,6 +23,11 @@ const router = createRouter({
       path: "/users",
       name: "users",
       component: () => import("../views/Users.vue"),
+    },
+    {
+      path: "/companies",
+      name: "companies",
+      component: () => import("../views/CompanyList.vue"),
     },
     {
       path: "/contact",

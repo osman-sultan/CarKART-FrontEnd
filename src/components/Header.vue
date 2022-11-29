@@ -32,6 +32,9 @@
                         <RouterLink class="nav-link" to="/users">Users</RouterLink>
                     </li>
                     <li class="nav-item">
+                        <RouterLink class="nav-link" to="/companies">Company List</RouterLink>
+                    </li>
+                    <li class="nav-item">
                         <RouterLink class="nav-link" :to="{name: 'myReviews', params:{userId:props.userId}}">My Reviews</RouterLink>
                     </li>
                     <li class="nav-item">
