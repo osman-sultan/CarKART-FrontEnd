@@ -125,7 +125,7 @@
     
     <div class="container">
       <div class="row">
-        <div class="col-2 filters">
+        <div class="col-lg-2 col-md-12 col-sm-12 filters">
           <div class="form-check m-4" v-for="company in listOfCompanies" v-bind:key="company.make">
             <input class="form-check-input" type="checkbox" :id="company.make" :value="company.make" v-model="companyFilter">
             <label class="form-check-label" :for="company.make">
@@ -134,7 +134,7 @@
           </div>
         </div>
 
-        <div class="col-10">
+        <div class="col-lg-10 col-md-12 col-sm-12">
           <CreateListing 
           @add-car="addCar"
           :nextId = "nextId"/>
@@ -147,12 +147,9 @@
   </main>
 </template>
 
-<style>
+<style scoped>
   @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css");
-
-  .filters {
-    border-right: 2px solid #D3D3D3;
-  }
+  
 </style>
     
 
