@@ -37,13 +37,14 @@
     console.log("User Registration request successful")
     console.log(users.value)
     alert('Registration Successful!')
-    router.push('/login')
+    router.push('/')
     init()
 
   }
 </script>
 
 <template>
+  <div class = "container">
     <form>
       <div class="mb-3">
         <label for="exampleInputUsername" class="form-label" >Username</label>
@@ -71,5 +72,6 @@
       </div>
       <button type="button" class="btn btn-primary" @click="addUser(form, nextId)">Register</button>
     </form>
-  </template>
+  </div>
+</template>
   

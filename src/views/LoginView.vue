@@ -22,7 +22,7 @@
     users.value.forEach(function(user) {
       if (user.username == form.username && user.password == form.password) {
         alert('Login Successful!')
-        router.push('/')
+        router.push('/home')
         verified = true;
       }
     });
@@ -38,18 +38,20 @@
 </script>
 
 <template>
-  <form>
-    <div class="mb-3">
-      <label for="exampleInputUsername" class="form-label" >Username</label>
-      <input type="text" class="form-control" id="exampleInputUsername" v-model="form.username">
-    </div>
-    <div class="mb-3">
-      <label for="exampleInputPassword1" class="form-label">Password</label>
-      <input type="password" class="form-control" id="exampleInputPassword1" v-model="form.password">
-    </div>
-    <button type="button" class="btn btn-primary" @click="verifyUser(form)">Submit</button>
-    <div class="alternative-option mt-4">
-      Don't have an account? <button type = "button" class="btn btn-primary" @click="moveToRegister">Register</button>
-    </div>
-  </form>
+  <div class = "container">
+    <form>
+      <div class="mb-3">
+        <label for="exampleInputUsername" class="form-label" >Username</label>
+        <input type="text" class="form-control" id="exampleInputUsername" v-model="form.username">
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" v-model="form.password">
+      </div>
+      <button type="button" class="btn btn-primary" @click="verifyUser(form)">Submit</button>
+      <div class="alternative-option mt-4">
+        Don't have an account? <button type = "button" class="btn btn-primary" @click="moveToRegister">Register</button>
+      </div>
+    </form>
+  </div>
 </template>
