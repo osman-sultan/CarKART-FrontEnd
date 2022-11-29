@@ -6,10 +6,16 @@ import axios from 'axios';
 const listOfReviews = ref([])
 const reviewDto = ref({})
 
+const props = defineProps({
+    userId: {
+        type: Number,
+        required: true,
+    }
+})
+
 const init = onMounted(async () => {
-    console.log('initializing')
     await axios
-    .get('http://localhost:8085/reviews')
+    .get('http://localhost:8085/reviews/userId/' + props.userId)
     .then((response) => {
         listOfReviews.value = response.data
         //reset all info in the review update form

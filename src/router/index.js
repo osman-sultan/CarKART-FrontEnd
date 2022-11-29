@@ -3,6 +3,7 @@ import HomeView from "../views/HomeView.vue";
 import LoginView from "../views/LoginView.vue";
 import ListingView from "../views/ListingView.vue";
 import RegisterView from "../views/RegisterView.vue";
+import MyReviewsView from "../views/MyReviewsView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -28,9 +29,10 @@ const router = createRouter({
       component: () => import("../views/ContactView.vue"),
     },
     {
-      path:"/myReviews",
+      path:"/myReviews/:userId",
       name: "myReviews",
-      component: () => import("../views/MyReviewsView.vue")
+      component: MyReviewsView,
+      props: true
     },
     {
       path: "/listing/:id",

@@ -9,6 +9,7 @@
   })
 
   const router = useRouter()
+  const emit = defineEmits('login-requested')
 
   const init = onMounted(async () => {
     await axios
@@ -23,7 +24,8 @@
       if (user.username == form.username && user.password == form.password) {
         alert('Login Successful!')
         router.push('/home')
-        verified = true;
+        emit('login',user.id)
+        verified = true
       }
     });
 

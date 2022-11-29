@@ -1,5 +1,12 @@
 <script setup>
     import { RouterLink } from 'vue-router'
+
+    const props = defineProps({
+        userId: {
+            type: Number,
+            required: true
+        }
+    })
 </script>
 
 <template>
@@ -25,7 +32,7 @@
                         <RouterLink class="nav-link" to="/users">Users</RouterLink>
                     </li>
                     <li class="nav-item">
-                        <RouterLink class="nav-link" to="/myReviews">My Reviews</RouterLink>
+                        <RouterLink class="nav-link" :to="{name: 'myReviews', params:{userId:props.userId}}">My Reviews</RouterLink>
                     </li>
                     <li class="nav-item">
                         <RouterLink class="nav-link" to="/compare">Compare</RouterLink>
