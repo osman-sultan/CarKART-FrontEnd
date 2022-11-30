@@ -158,11 +158,15 @@
       <ul class="list-group">
         <li class="list-group-item" >
           <a href="https://getbootstrap.com/">Bootstrap</a> , 
-          <a href="https://vuejs.org/">Vue</a> , 
+          <a href="https://vuejs.org/">Vue</a> , [2]
           <a href="https://www.kaggle.com/datasets/ander289386/cars-germany">Kaggle Car Data</a>
         </li>
       </ul>
+      <p></p>
 
+      <h3>References</h3>
+      <p>[1] Kantar TNS and Google, “THE DRIVE TO DECIDE,” Gearshift Auto Shopper Study 2017, 2017. [Accessed: 12-Oct-2022].  </p>
+      <p>[2] Ander, “Germany cars dataset,” Kaggle, 09-Jun-2021. [Online]. Available: https://www.kaggle.com/datasets/ander289386/cars-germany. [Accessed: 12-Oct-2022]. </p>
         
   </div>
 </template>
