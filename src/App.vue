@@ -1,6 +1,6 @@
 <script setup>
   import {ref} from 'vue'
-  import { RouterView } from 'vue-router'
+  import { RouterView, useRouter} from 'vue-router'
   import Header from './components/Header.vue'
   import './assets/main.css'
   import LoginView from './views/LoginView.vue';
@@ -8,19 +8,25 @@
   const userId = ref(-1)
   const isAuth = ref(false)
 
-  function setUser(id) {
-    userId.value = id
+  const router = useRouter()
 
+  function Login(id) {
+    userId.value = id
     isAuth.value = true
+  }
+
+  function Logout() {
+    isAuth.value = false
+    router.push('/')
   }
 </script>
 
 <template>
   <div v-if="!isAuth">
-    <LoginView @login="setUser" />
+    <LoginView @login="Login" />
   </div>
   <div v-else>
-    <Header :userId="userId"/>
+    <Header :userId="userId" @logout="Logout"/>
     <RouterView />
     <footer class="bg-light mt-5">
       <p class="footer">
