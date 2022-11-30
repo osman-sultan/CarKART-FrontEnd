@@ -1,9 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
-import LoginView from "../views/LoginView.vue";
-import CompanyList from "../views/CompanyList.vue";
 import ListingView from "../views/ListingView.vue";
-import RegisterView from "../views/RegisterView.vue";
+import LoginView from "../views/LoginView.vue";
 import MyReviewsView from "../views/MyReviewsView.vue";
 
 const router = createRouter({
@@ -13,7 +11,7 @@ const router = createRouter({
       path: "/home/:userId",
       name: "home",
       component: HomeView,
-      props: true
+      props: true,
     },
     {
       path: "/about",
@@ -36,10 +34,10 @@ const router = createRouter({
       component: () => import("../views/ContactView.vue"),
     },
     {
-      path:"/myReviews/:userId",
+      path: "/myReviews/:userId",
       name: "myReviews",
       component: MyReviewsView,
-      props: true
+      props: true,
     },
     {
       path: "/listing/:userId/:id",
@@ -58,12 +56,6 @@ const router = createRouter({
       component: LoginView,
       props: true,
     },
-    {
-      path: "/register",
-      name: "register",
-      component: RegisterView,
-      props: true,
-    }
   ],
 });
 

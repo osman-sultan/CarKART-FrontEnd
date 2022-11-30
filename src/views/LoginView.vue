@@ -1,6 +1,7 @@
 <script setup>
   import { ref, onMounted } from 'vue'
   import { useRouter } from 'vue-router'
+  import RegisterView from '../components/Register.vue'
   import axios from 'axios'
   const users = ([])
   const form = ref({
@@ -33,10 +34,6 @@
       alert('Login Information is Incorrect!')
     }
   }
-
-  function moveToRegister() {
-    router.push('/register')
-  }
 </script>
 
 <template>
@@ -51,8 +48,16 @@
         <input type="password" class="form-control" id="exampleInputPassword1" v-model="form.password">
       </div>
       <button type="button" class="btn btn-primary" @click="verifyUser(form)">Submit</button>
-      <div class="alternative-option mt-4">
-        Don't have an account? <button type = "button" class="btn btn-primary" @click="moveToRegister">Register</button>
+      <div class="alternative-option mt-4"> 
+        <p>
+          First time here?
+          <button class="btn btn-primary" type="button" data-toggle="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+            Make an account!
+          </button>
+        </p>
+        <div class="collapse" id="collapseExample">
+          <RegisterView />
+        </div>
       </div>
     </form>
   </div>

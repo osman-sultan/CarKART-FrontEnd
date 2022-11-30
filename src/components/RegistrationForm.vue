@@ -35,5 +35,4 @@
         password: "",
         address: ""
     })
-
 </script>

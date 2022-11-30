@@ -17,6 +17,8 @@
     .then(response => {users.value = response.data, nextId.value = (Object.keys(response.data).length > 0) ? response.data[Object.keys(response.data).length - 1].id + 1 : 1})
   })
 
+  const emit = defineEmits(['add-user'])
+  
   async function addUser(form, nextId){
     console.log("Making a registration request")
     await axios
@@ -39,7 +41,6 @@
     alert('Registration Successful!')
     router.push('/')
     init()
-
   }
 </script>
 
@@ -70,7 +71,7 @@
         <label for="exampleInputAddress" class="form-label">Address</label>
         <input type="text" class="form-control" id="exampleInputAddress" v-model="form.address">
       </div>
-      <button type="button" class="btn btn-primary" @click="addUser(form, nextId)">Register</button>
+      <button type="submit" class="btn btn-primary" @click="addUser(form, nextId)">Register</button>
     </form>
   </div>
 </template>
