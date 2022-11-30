@@ -5,14 +5,28 @@
 
   import { ref, onMounted, watch } from 'vue'
   import axios from 'axios'
+
+  const props = defineProps({
+    userId: {
+      type: Number,
+      required: true
+    }
+  })
   
   const listOfCars = ref([])
   const filteredCars = ref([])
+  const listOfCompanies = ref([])
   const nextId = ref(0)
   const init = onMounted(async () => {
     await axios
     .get('http://localhost:8085/cars')
-    .then(response => {listOfCars.value = response.data, filteredCars.value = response.data, nextId.value = (Object.keys(response.data).length > 0) ? response.data[Object.keys(response.data).length - 1].id + 1 : 1})
+    .then(response => {listOfCars.value = response.data, 
+      filteredCars.value = response.data, 
+      nextId.value = (Object.keys(response.data).length > 0) ? 
+      response.data[Object.keys(response.data).length - 1].id + 1 : 1})
+    await axios
+    .get('http://localhost:8085/company')
+    .then(reponse => listOfCompanies.value = reponse.data)
   })
   
   async function deleteCar(id){
@@ -32,6 +46,7 @@
     .post('http://localhost:8085/cars', {
       "id": nextId,
       "make": form.make,
+      "sellerId": 1,
       "model": form.model,
       "releaseYear": form.releaseYear,
       "fuelType": form.fuelType,
@@ -58,6 +73,7 @@
     .put('http://localhost:8085/cars/' + form.id, {
       "id": form.id,
       "make": form.make,
+      "sellerId": 1,
       "model": form.model,
       "releaseYear": form.releaseYear,
       "fuelType": form.fuelType,
@@ -86,26 +102,25 @@
   const companyFilter = ref([])
   
   watch(companyFilter, () => {
-    filteredCars.value = listOfCars.value.filter(listOfCars.some(car => car.company.make.includes(companyFilter)))
+    console.log(companyFilter.value.length)
+    if (companyFilter.value.length == 0) {
+      filteredCars.value = listOfCars.value 
+    }
+    else{
+      filteredCars.value = listOfCars.value.filter(car => companyFilter.value.includes(car.company.make))
+    }
   })
 </script>
 
 <template>
   <main>
-    <div>{{ companyFilter }}</div>
-    <div class="form-check m-4" v-for="car in listOfCars">
-      <input class="form-check-input" type="checkbox" :id="car.company.make" :value="car.company.make" v-model="companyFilter">
-      <label class="form-check-label" :for="car.company.make">
-        {{ car.company.make }}
-      </label>
-    </div>
+    
+    
     <div class="container p-4">
       <form class="row row-cols-lg-auto g-3 align-items-center justify-content-center">
         <KeywordSearch
         :listOfCars="listOfCars"
         @search-car="searchCar"/>
-
-
         <!-- Button to trigger create modal -->
         <div class="col-12 d-flex justify-content-center">
           <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#createModal">
@@ -114,18 +129,35 @@
         </div>
       </form>
     </div>
+    
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-2 col-md-12 col-sm-12 filters">
+          <div class="form-check m-4" v-for="company in listOfCompanies" v-bind:key="company.make">
+            <input class="form-check-input" type="checkbox" :id="company.make" :value="company.make" v-model="companyFilter">
+            <label class="form-check-label" :for="company.make">
+              {{ company.make }}
+            </label>
+          </div>
+        </div>
 
-    <CreateListing 
-    @add-car="addCar"
-    :nextId = "nextId"/>
-    <CarCardDisplay @delete-car="deleteCar" 
-    @update-car="updateCar"  
-    :cars="filteredCars" />
+        <div class="col-lg-10 col-md-12 col-sm-12">
+          <CreateListing 
+          @add-car="addCar"
+          :nextId = "nextId"/>
+          <CarCardDisplay @delete-car="deleteCar" 
+          @update-car="updateCar"  
+          :cars="filteredCars" 
+          :userId="props.userId"/>
+        </div>
+      </div>
+    </div>
   </main>
 </template>
 
-<style>
+<style scoped>
   @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css");
+  
 </style>
     
 

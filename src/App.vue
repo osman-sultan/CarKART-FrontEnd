@@ -1,18 +1,40 @@
 <script setup>
-  import { RouterView } from 'vue-router'
+  import {ref} from 'vue'
+  import { RouterView, useRouter} from 'vue-router'
   import Header from './components/Header.vue'
   import './assets/main.css'
+  import LoginView from './views/LoginView.vue';
+
+  const userId = ref(-1)
+  const isAuth = ref(false)
+
+  const router = useRouter()
+
+  function Login(id) {
+    userId.value = id
+    isAuth.value = true
+  }
+
+  function Logout() {
+    isAuth.value = false
+    router.push('/')
+  }
 </script>
 
 <template>
-  <Header />
-  <RouterView />
-  <footer class="bg-light mt-5">
-    <p class="footer">
-      MIE350 Team 7
-      <br>Disclaimer: This is not a professional website.
-    </p>
-  </footer>
+  <div v-if="!isAuth">
+    <LoginView @login="Login" />
+  </div>
+  <div v-else>
+    <Header :userId="userId" @logout="Logout"/>
+    <RouterView />
+    <footer class="bg-light mt-5">
+      <p class="footer">
+        MIE350 Team 7
+        <br>Disclaimer: This is not a professional website.
+      </p>
+    </footer>
+  </div>
 </template>
 
 <style>

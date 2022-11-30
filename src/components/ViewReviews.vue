@@ -23,7 +23,6 @@
 
 <template>
   <div class="container">
-    <p> wat is this page for and how should reviews be displayed hmm </p>
     <h2> Users </h2>
 
     <table class="table">
