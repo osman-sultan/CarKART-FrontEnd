@@ -14,7 +14,7 @@
     "bootstrap-icons": "^1.10.2",
     "instantsearch.css": "^7.4.5",
     "vue": "^3.2.41",
-    "vue-axios": "^3.5.1",
+    "vue-axios": "^3.5.2",
     "vue-instantsearch": "^4.6.0",
     "vue-router": "^4.1.5",
     "vue-select": "^4.0.0-beta.6",

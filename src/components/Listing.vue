@@ -112,10 +112,10 @@ import axios from 'axios';
         <h1 class="display-5 fw-bold lh-1 mb-3"> {{car.company.make}} {{car.model}}</h1>
         <p class="lead">
           <p>
-            Good morning. {{car.company.make}} {{car.model}} is a very great car. Please buy it, thanks.
-          </p>
+            This {{car.company.make}} once again raises the bar for fuel efficiency, technological advances, and comfort. With the capability to run on either all electric or hybrid driving modes, the {{car.company.make}} {{car.model}} lets you strike a harmonious balance between necessity and desire. Its sculpted design, aerodynamic shape, and lightweight materials, combined with its proven hybrid technology, all work together to enhance performance while maximizing and redefining efficiency.
+          </p> 
           <p>
-            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+            From the way it looks to the way it drives, this {{car.company.make}}  will surprise you at every turn. This low mileage {{car.company.make}} has just {{car.mileage}} km. It's {{car.colour}}  in colour and is completely accident free based on the CARFAX Report. It has a {{car.transmission}} transmission.
           </p>
         </p>
         <div class="d-grid gap-3 d-md-flex justify-content-md-start">
@@ -129,13 +129,7 @@ import axios from 'axios';
 
   <!--car specifications svgs-->
   <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-    
-  <!--
-  <symbol id="bootstrap" viewBox="0 0 118 94">
-    <title>Bootstrap</title>
-    <path fill-rule="evenodd" clip-rule="evenodd" d="M2.52 3.515A2.5 2.5 0 0 1 4.82 2h6.362c1 0 1.904.596 2.298 1.515l.792 1.848c.075.175.21.319.38.404.5.25.855.715.965 1.262l.335 1.679c.033.161.049.325.049.49v.413c0 .814-.39 1.543-1 1.997V13.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-1.338c-1.292.048-2.745.088-4 .088s-2.708-.04-4-.088V13.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-1.892c-.61-.454-1-1.183-1-1.997v-.413a2.5 2.5 0 0 1 .049-.49l.335-1.68c.11-.546.465-1.012.964-1.261a.807.807 0 0 0 .381-.404l.792-1.848ZM3 10a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm10 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2ZM6 8a1 1 0 0 0 0 2h4a1 1 0 1 0 0-2H6ZM2.906 5.189a.51.51 0 0 0 .497.731c.91-.073 3.35-.17 4.597-.17 1.247 0 3.688.097 4.597.17a.51.51 0 0 0 .497-.731l-.956-1.913A.5.5 0 0 0 11.691 3H4.309a.5.5 0 0 0-.447.276L2.906 5.19Z"></path>
-  </symbol>
-  -->
+  
   <symbol id="carMakeAndModel" viewBox="0 0 16 16">
     <path d="M2.52 3.515A2.5 2.5 0 0 1 4.82 2h6.362c1 0 1.904.596 2.298 1.515l.792 1.848c.075.175.21.319.38.404.5.25.855.715.965 1.262l.335 1.679c.033.161.049.325.049.49v.413c0 .814-.39 1.543-1 1.997V13.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-1.338c-1.292.048-2.745.088-4 .088s-2.708-.04-4-.088V13.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-1.892c-.61-.454-1-1.183-1-1.997v-.413a2.5 2.5 0 0 1 .049-.49l.335-1.68c.11-.546.465-1.012.964-1.261a.807.807 0 0 0 .381-.404l.792-1.848ZM3 10a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm10 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2ZM6 8a1 1 0 0 0 0 2h4a1 1 0 1 0 0-2H6ZM2.906 5.189a.51.51 0 0 0 .497.731c.91-.073 3.35-.17 4.597-.17 1.247 0 3.688.097 4.597.17a.51.51 0 0 0 .497-.731l-.956-1.913A.5.5 0 0 0 11.691 3H4.309a.5.5 0 0 0-.447.276L2.906 5.19Z"/>
   </symbol>
@@ -181,57 +175,57 @@ import axios from 'axios';
       <div class="col d-flex align-items-start">
         <svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#carMakeAndModel"/></svg>
         <div>
-          <h3 class="fw-bold mb-0 fs-4">{{car.company.make}} {{car.model}}</h3>
-          <p>Paragraph of text beneath the heading to explain the heading.</p>
+          <h3 class="fw-bold mb-0 fs-4">Model</h3>
+          <p>{{car.company.make}} {{car.model}}</p>
         </div>
       </div>
       <div class="col d-flex align-items-start">
         <svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#fuelType"/></svg>
         <div>
-          <h3 class="fw-bold mb-0 fs-4">{{car.fuelType}}</h3>
-          <p>Paragraph of text beneath the heading to explain the heading.</p>
+          <h3 class="fw-bold mb-0 fs-4">Fuel Type</h3>
+          <p>{{car.fuelType}}</p>
         </div>
       </div>
       <div class="col d-flex align-items-start">
         <svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#releaseYear"/></svg>
         <div>
-          <h3 class="fw-bold mb-0 fs-4">Released: {{car.releaseYear}}</h3>
-          <p>Paragraph of text beneath the heading to explain the heading.</p>
+          <h3 class="fw-bold mb-0 fs-4">Release Year</h3>
+          <p>{{car.releaseYear}}</p>
         </div>
       </div>
       <div class="col d-flex align-items-start">
         <svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#vehicleType"/></svg>
         <div>
-          <h3 class="fw-bold mb-0 fs-4">{{car.vehicleType}}</h3>
-          <p>Paragraph of text beneath the heading to explain the heading.</p>
+          <h3 class="fw-bold mb-0 fs-4">Type</h3>
+          <p>{{car.vehicleType}}</p>
         </div>
       </div>
       <div class="col d-flex align-items-start">
         <svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#horsepower"/></svg>
         <div>
-          <h3 class="fw-bold mb-0 fs-4">{{car.hp}} hp</h3>
-          <p>Paragraph of text beneath the heading to explain the heading.</p>
+          <h3 class="fw-bold mb-0 fs-4">Horsepower</h3>
+          <p>{{car.hp}} hp</p>
         </div>
       </div>
       <div class="col d-flex align-items-start">
         <svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#mileage"/></svg>
         <div>
-          <h3 class="fw-bold mb-0 fs-4">{{car.mileage}} km</h3>
-          <p>Paragraph of text beneath the heading to explain the heading.</p>
+          <h3 class="fw-bold mb-0 fs-4">Mileage</h3>
+          <p>{{car.mileage}}</p>
         </div>
       </div>
       <div class="col d-flex align-items-start">
         <svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#color"/></svg>
         <div>
-          <h3 class="fw-bold mb-0 fs-4">{{car.colour}}</h3>
-          <p>Paragraph of text beneath the heading to explain the heading.</p>
+          <h3 class="fw-bold mb-0 fs-4">Colour</h3>
+          <p>{{car.colour}}</p>
         </div>
       </div>
       <div class="col d-flex align-items-start">
         <svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#transmission"/></svg>
         <div>
-          <h3 class="fw-bold mb-0 fs-4">{{car.transmission}}</h3>
-          <p>Paragraph of text beneath the heading to explain the heading.</p>
+          <h3 class="fw-bold mb-0 fs-4">Transmission</h3>
+          <p>{{car.transmission}}</p>
         </div>
       </div>
     </div>
