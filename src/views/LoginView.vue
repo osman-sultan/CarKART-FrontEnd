@@ -47,7 +47,7 @@
         <label for="exampleInputPassword1" class="form-label">Password</label>
         <input type="password" class="form-control" id="exampleInputPassword1" v-model="form.password">
       </div>
-      <button type="button" class="btn btn-primary" @click="verifyUser(form)">Submit</button>
+      <button type="button" class="btn btn-primary" @click="verifyUser(form)">Log In</button>
       <div class="alternative-option mt-4"> 
         <p>
           First time here?
