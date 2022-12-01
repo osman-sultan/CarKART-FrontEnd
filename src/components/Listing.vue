@@ -120,7 +120,9 @@ import axios from 'axios';
         </p>
         <div class="d-grid gap-3 d-md-flex justify-content-md-start">
           <button type="button" class="btn btn-primary btn-lg px-4 ">Contact Seller</button>
-          <button type="button" class="btn btn-outline-secondary btn-lg px-4">Generate comparison</button>
+          <RouterLink to="/compare">
+            <button type="button" class="btn btn-outline-secondary btn-lg px-4">Generate comparison</button>
+          </RouterLink>
           <button type="button" class="btn btn-primary btn-lg px-4" data-bs-toggle="modal" data-bs-target="#createReviewModal">Write a Review</button>
         </div>
       </div>
