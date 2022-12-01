@@ -177,57 +177,57 @@ import axios from 'axios';
       <div class="col d-flex align-items-start">
         <svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#carMakeAndModel"/></svg>
         <div>
-          <h3 class="fw-bold mb-0 fs-4">Model</h3>
-          <p>{{car.company.make}} {{car.model}}</p>
+          <h3 class="fw-bold mb-0 fs-4">{{car.company.make}} {{car.model}}</h3>
+          <p>Model</p>
         </div>
       </div>
       <div class="col d-flex align-items-start">
         <svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#fuelType"/></svg>
         <div>
-          <h3 class="fw-bold mb-0 fs-4">Fuel Type</h3>
-          <p>{{car.fuelType}}</p>
+          <h3 class="fw-bold mb-0 fs-4">{{car.fuelType}}</h3>
+          <p>Fuel Type</p>
         </div>
       </div>
       <div class="col d-flex align-items-start">
         <svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#releaseYear"/></svg>
         <div>
-          <h3 class="fw-bold mb-0 fs-4">Release Year</h3>
-          <p>{{car.releaseYear}}</p>
+          <h3 class="fw-bold mb-0 fs-4">{{car.releaseYear}}</h3>
+          <p>Release Year</p>
         </div>
       </div>
       <div class="col d-flex align-items-start">
         <svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#vehicleType"/></svg>
         <div>
-          <h3 class="fw-bold mb-0 fs-4">Type</h3>
-          <p>{{car.vehicleType}}</p>
+          <h3 class="fw-bold mb-0 fs-4">{{car.vehicleType}}</h3>
+          <p>Body Type</p>
         </div>
       </div>
       <div class="col d-flex align-items-start">
         <svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#horsepower"/></svg>
         <div>
-          <h3 class="fw-bold mb-0 fs-4">Horsepower</h3>
-          <p>{{car.hp}} hp</p>
+          <h3 class="fw-bold mb-0 fs-4">{{car.hp}} HP</h3>
+          <p>Horsepower</p>
         </div>
       </div>
       <div class="col d-flex align-items-start">
         <svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#mileage"/></svg>
         <div>
-          <h3 class="fw-bold mb-0 fs-4">Mileage</h3>
-          <p>{{car.mileage}}</p>
+          <h3 class="fw-bold mb-0 fs-4">{{car.mileage}} Km</h3>
+          <p>Mileage</p>
         </div>
       </div>
       <div class="col d-flex align-items-start">
         <svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#color"/></svg>
         <div>
-          <h3 class="fw-bold mb-0 fs-4">Colour</h3>
-          <p>{{car.colour}}</p>
+          <h3 class="fw-bold mb-0 fs-4">{{car.colour}}</h3>
+          <p>Exterior Colour</p>
         </div>
       </div>
       <div class="col d-flex align-items-start">
         <svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#transmission"/></svg>
         <div>
-          <h3 class="fw-bold mb-0 fs-4">Transmission</h3>
-          <p>{{car.transmission}}</p>
+          <h3 class="fw-bold mb-0 fs-4">{{car.transmission}}</h3>
+          <p>Transmission</p>
         </div>
       </div>
     </div>
