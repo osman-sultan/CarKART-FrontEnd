@@ -16,15 +16,20 @@
         await axios
         .get('http://localhost:8085/company')
         .then(reponse => listOfCompanies.value = reponse.data)
-        })
-</script>
 
+        if (listOfCars.value.length){
+            listOfCars.value.map(function (x){
+                return x.item_data = x.releaseYear + ' ' + x.company.make + ' ' + x.model
+            })
+        }
+    })
+</script>
 
 <template>
     <div class="container">
         <div class="row gx-5 pt-5">
             <div class="col-6">
-                <v-select :options="listOfCars" label="model" v-model="car1">
+                <v-select :options="listOfCars" :reduce="(option) => option" label="item_data" value="car1" v-model="car1">
                     <template v-slot:option="option" >
                         <img :src="option.carURL" class="selectCars" />
                         <div>
@@ -34,11 +39,11 @@
                 </v-select>
             </div>
             <div class="col-6">
-                <v-select :options="listOfCars" label="model" value="car2" v-model="car2">
+                <v-select :options="listOfCars" :reduce="(option) => option" label="item_data" value="car2" v-model="car2">
                     <template v-slot:option="option">
                         <img :src="option.carURL" class="selectCars" />
                         <div>
-                            {{ option.company.make }} {{ option.model }}
+                            {{ option.releaseYear }} {{ option.company.make }} {{ option.model }}
                         </div>   
                     </template>
                 </v-select>
@@ -46,21 +51,41 @@
         </div>
         <div class="row gx-5 pt-5">
             <div class="col-6">
-                <ul class="list-group" v-if="car1" pt-5>
-                    <li class="list-group-item"><img :src="car1.carURL" class="selectedCar"/></li>
-                    <li class="list-group-item">A second item</li>
-                    <li class="list-group-item">A third item</li>
-                    <li class="list-group-item">A fourth item</li>
-                    <li class="list-group-item">And a fifth one</li>
+                <ul class="list-group text-center" v-if="car1" pt-5>
+                    <li class="list-group-item">
+                        <div class="container">
+                            <img :src="car1.carURL" class="img-fluid h-25"/>
+                        </div>
+                    </li>
+                    <li class="list-group-item">Make: {{car1.company.make}}</li>
+                    <li class="list-group-item">Model: {{car1.model}}</li>
+                    <li class="list-group-item">Release Year: {{car1.releaseYear}}</li>
+                    <li class="list-group-item">Body Style: {{car1.vehicleType}}</li>
+                    <li class="list-group-item">Transmission: {{car1.transmission}}</li>
+                    <li class="list-group-item">Horsepower: {{car1.hp}}</li>
+                    <li class="list-group-item">Fuel Type: {{car1.fuelType}}</li>
+                    <li class="list-group-item">Exterior Colour: {{car1.colour}}</li>
+                    <li class="list-group-item">Milage (MPG): {{car1.mileage}}</li>
+                    <li class="list-group-item">Price (CAD): ${{car1.price}}</li>
                 </ul>
             </div>
             <div class="col-6">
-                <ul class="list-group" v-if="car2" my-5>
-                    <li class="list-group-item"><img :src="car2.carURL" class="selectedCar"/></li>
-                    <li class="list-group-item">A second item</li>
-                    <li class="list-group-item">A third item</li>
-                    <li class="list-group-item">A fourth item</li>
-                    <li class="list-group-item">And a fifth one</li>
+                <ul class="list-group text-center" v-if="car2" my-5 >
+                    <li class="list-group-item">
+                        <div class="container">
+                            <img :src="car2.carURL" class="img-fluid"/>
+                        </div>
+                    </li>
+                    <li class="list-group-item">Make: {{car2.company.make}}</li>
+                    <li class="list-group-item">Model: {{car2.model}}</li>
+                    <li class="list-group-item">Release Year: {{car2.releaseYear}}</li>
+                    <li class="list-group-item">Body Style: {{car2.vehicleType}}</li>
+                    <li class="list-group-item">Transmission: {{car2.transmission}}</li>
+                    <li class="list-group-item">Horsepower: {{car2.hp}}</li>
+                    <li class="list-group-item">Fuel Type: {{car2.fuelType}}</li>
+                    <li class="list-group-item">Exterior Colour: {{car2.colour}}</li>
+                    <li class="list-group-item">Milage (MPG): {{car2.mileage}}</li>
+                    <li class="list-group-item">Price (CAD): ${{car2.price}}</li>
                 </ul>
             </div>
         </div>
@@ -72,8 +97,12 @@
         height: 100px;
         width: 200px;
     }
-  .selectCars{
-    height: 2em;
-    width: 3em;
-  }
+    .selectCars{
+        height: 2em;
+        width: 3em;
+    }
+
+    .comp{
+        object-fit: container;
+    }
 </style>

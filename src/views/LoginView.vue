@@ -37,28 +37,42 @@
 </script>
 
 <template>
-  <div class = "container">
-    <form>
-      <div class="mb-3">
-        <label for="exampleInputUsername" class="form-label" >Username</label>
-        <input type="text" class="form-control" id="exampleInputUsername" v-model="form.username">
-      </div>
-      <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" v-model="form.password">
-      </div>
-      <button type="button" class="btn btn-primary" @click="verifyUser(form)">Log In</button>
-      <div class="alternative-option mt-4"> 
-        <p>
-          First time here?
-          <button class="btn btn-primary" type="button" data-toggle="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-            Make an account!
-          </button>
-        </p>
-        <div class="collapse" id="collapseExample">
-          <RegisterView />
+  <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <div class="logo">
+                    <img src="/images/logo.png" class="img-fluid">
+                </div>
+            </a>
         </div>
+    </nav>
+  
+  <div class = "container pt-4">
+    <div class = "row justify-content-center">
+      <div class = "col-6">
+        <form>
+          <div class="mb-3">
+            <label for="exampleInputUsername" class="form-label" >Username</label>
+            <input type="text" class="form-control" id="exampleInputUsername" v-model="form.username">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" v-model="form.password">
+          </div>
+          <button type="button" class="btn btn-primary" @click="verifyUser(form)">Log In</button>
+          <div class="alternative-option mt-4"> 
+            <p>
+              First time here?
+              <button class="btn btn-primary m-lg-2" type="button" data-toggle="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                Make an account!
+              </button>
+            </p>
+            <div class="collapse" id="collapseExample">
+              <RegisterView />
+            </div>
+          </div>
+        </form>
       </div>
-    </form>
+    </div>
   </div>
 </template>

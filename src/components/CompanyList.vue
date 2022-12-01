@@ -30,7 +30,7 @@
             </thead>
 
             <tbody>
-                <tr v-for="company in companies" :company="company">
+                <tr v-for="company in companies" :key = "company.make" :company="company">
 
                     <td>
                     <img :src="company.logoURL" 

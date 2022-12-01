@@ -114,37 +114,44 @@
 
 <template>
   <main>
-    
-    
-    <div class="container p-4">
-      <form class="row row-cols-lg-auto g-3 align-items-center justify-content-center">
+    <div class="container py-4">
+      <form class="row">
         <KeywordSearch
         :listOfCars="listOfCars"
         @search-car="searchCar"/>
         <!-- Button to trigger create modal -->
-        <div class="col-12 d-flex justify-content-center">
-          <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#createModal">
+        <div class="col-lg-2 col-md-12 col-sm-12 d-flex justify-content-center">
+          <button type="button" class="btn btn-success mt-lg-0 mt-md-4 mt-sm-4" data-bs-toggle="modal" data-bs-target="#createModal">
             Create Vehicle Listing 
           </button>
         </div>
       </form>
-    </div>
-    
-    <div class="container">
-      <div class="row">
+      <div class="row py-4">
         <div class="col-lg-2 col-md-12 col-sm-12 filters">
-          <div class="form-check m-4" v-for="company in listOfCompanies" v-bind:key="company.make">
-            <input class="form-check-input" type="checkbox" :id="company.make" :value="company.make" v-model="companyFilter">
-            <label class="form-check-label" :for="company.make">
-              {{ company.make }}
-            </label>
+          <div class="card border-0" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">Filters</h5>
+              <h6 class="card-subtitle mb-2 text-muted">Find the perfect car!</h6>
+              <div class="dropdown">
+                <a class="btn btn-primary-outline dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Companies
+                </a>
+                <ul class="dropdown-menu">
+                  <li v-for="company in listOfCompanies" v-bind:key="company.make">
+                    <div class="form-check m-4">
+                      <input class="form-check-input" type="checkbox" :id="company.make" :value="company.make" v-model="companyFilter">
+                      <label class="form-check-label" :for="company.make">
+                        {{ company.make }}
+                      </label>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
 
         <div class="col-lg-10 col-md-12 col-sm-12">
-          <CreateListing 
-          @add-car="addCar"
-          :nextId = "nextId"/>
           <CarCardDisplay @delete-car="deleteCar" 
           @update-car="updateCar"  
           :cars="filteredCars" 
@@ -152,6 +159,9 @@
         </div>
       </div>
     </div>
+    <CreateListing 
+    @add-car="addCar"
+    :nextId = "nextId"/>
   </main>
 </template>
 
