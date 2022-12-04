@@ -115,17 +115,20 @@
 <template>
   <main>
     <div class="container py-4">
-      <form class="row">
-        <KeywordSearch
-        :listOfCars="listOfCars"
-        @search-car="searchCar"/>
+      <div class="row g-4 justify-content-center">
+        <div class="col-md-12 col-lg-10 text-center">
+          <KeywordSearch
+          :listOfCars="listOfCars"
+          @search-car="searchCar"/>
+        </div>
+
         <!-- Button to trigger create modal -->
-        <div class="col-lg-2 col-md-12 col-sm-12 d-flex justify-content-center">
-          <button type="button" class="btn btn-success mt-lg-0 mt-md-4 mt-sm-4" data-bs-toggle="modal" data-bs-target="#createModal">
+        <div class="col-md-12 col-lg-2 text-center">
+          <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#createModal">
             Create Vehicle Listing 
           </button>
         </div>
-      </form>
+      </div>
       <div class="row py-4">
         <div class="col-lg-2 col-md-12 col-sm-12 filters">
           <div class="card border-0" style="width: 18rem;">
@@ -167,6 +170,12 @@
 
 <style scoped>
   @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css");
+
+  .dropdown-menu{
+    overflow: hidden;
+    overflow-y: auto;
+    max-height: 25vh;
+  }
   
 </style>
     

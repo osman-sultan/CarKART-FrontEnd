@@ -33,13 +33,13 @@
 
 
 <template>
-    <div class="col-lg-10 col-sm-12 col-md-12">
-        <label class="visually-hidden" for="inlineFormInputGroupUsername">Username</label>
-        <div class="input-group">
-            <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Searching for a listing..." v-model.trim="search">
-            <div class="input-group-text"><i class="bi bi-search"></i></div>
-        </div>
+    
+    <label class="visually-hidden" for="inlineFormInputGroupUsername">Username</label>
+    <div class="input-group">
+        <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Searching for a listing..." v-model.trim="search">
+        <div class="input-group-text"><i class="bi bi-search"></i></div>
     </div>
+    
 </template>
 
 
