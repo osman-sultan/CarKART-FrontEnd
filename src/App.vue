@@ -31,8 +31,8 @@
     <footer class="p-5 bg-light text-center position-relative">
       <div class="container">
         <p class="footer">
-          MIE350 Team 7
-          <br>Disclaimer: This is not a professional website.
+          Copyright &copy; 2022 MIE350 Team 7
+          <br>Disclaimer: This is a mock application and is currently not intended for official use
         </p>
         <a href="#" class="position-absolute bottom-0 end-0 p-5">
           <i class="bi bi-arrow-up-circle h1"></i>
