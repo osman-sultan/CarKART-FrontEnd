@@ -133,9 +133,9 @@
                 class="rounded-circle mb-3 img-fluid"
               />
               <h3 class="card-title mb-3">Michael Iaccino</h3>
-              <h6 class="card-subtitle mb-2 text-muted">Front-End Developer</h6>
+              <h6 class="card-subtitle mb-2 text-muted">Business Analyst<br>Front-End Developer</h6>
               <p class="card-text">
-                Hey guys! My favourite car is a Nissan Cube :)
+                Hey guys! My favourite car is a Ford GT :)
               </p>
             </div>
             <div class="card-footer text-center">
