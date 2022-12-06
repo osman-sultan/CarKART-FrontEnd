@@ -197,63 +197,58 @@
   <section id="relevnt-websites" class="px-5 py-4">
     <div class="container">
       <h3>Relevant Websites</h3>
-      <p>
-        A reasonable collection of links, effectively organized 
-        and identified to help site visitors 
-        find the sites of key other content sites 
-        (e.g., businesses, other communities) that are directly relevant.</p>
-      <p>Car Companies:</p>
+      <p>Car Companies (see Company List for more information):</p>
       <ul class="list-group">
         <li class="list-group-item" >
-          <a href="https://www.bmw.ca/en/home.html">BMW</a> - Founded in the year 1916, Bayerische Motoren Werke AG is located in Germany
+          <a href="https://www.bmw.ca/en/home.html">BMW</a> 
         </li>
         <li class="list-group-item">
-          <a href="https://www.seat.com/">Seat</a> - Founded in the year 1950, Sociedad Española de Automóviles de Turismo is located in Spain
+          <a href="https://www.seat.com/">Seat</a> 
         </li>
         <li class="list-group-item">
-          <a href="https://www.vw.ca/en.html">Volkswagen</a> - Founded in the year 1937, Volkswagen is located in Germany
+          <a href="https://www.vw.ca/en.html">Volkswagen</a> 
         </li>
         <li class="list-group-item">
-          <a href="https://www.renault.fr/">Renault</a> - Founded in the year 1898, the Renault Group is located in France
+          <a href="https://www.renault.fr/">Renault</a> 
         </li>
         <li class="list-group-item">
-          <a href="https://www.peugeot.com/en/">Peugeot</a> - Founded in the year 1896, Peugeot is located in France
+          <a href="https://www.peugeot.com/en/">Peugeot</a> 
         </li>
         <li class="list-group-item">
-          <a href="https://www.toyota.ca/toyota/en/">Toyota</a> - Founded in the year 1937, the Toyota Motor Corporation is located in Japan
+          <a href="https://www.toyota.ca/toyota/en/">Toyota</a> 
         </li>
         <li class="list-group-item">
-          <a href="https://www.opel.com/">Opel</a> - Founded in the year 1862, Opel Automobile is located in Germany
+          <a href="https://www.opel.com/">Opel</a> 
         </li>
         <li class="list-group-item">
-          <a href="https://www.mazda.ca/">Mazda</a> - Founded in the year 1920, the Mazda Motor Corporation is located in Japan
+          <a href="https://www.mazda.ca/">Mazda</a> 
         </li>
         <li class="list-group-item">
-          <a href="https://www.ford.ca/">Ford</a> - Founded in the year 1903, the Ford Motor Company is located in the USA
+          <a href="https://www.ford.ca/">Ford</a> 
         </li>
         <li class="list-group-item">
-          <a href="https://www.mercedes-benz.ca/en/home">Mercedes-Benz</a> - Founded in the year 1926, Mercedes-Benz is located in Germany
+          <a href="https://www.mercedes-benz.ca/en/home">Mercedes-Benz</a> 
         </li>
         <li class="list-group-item">
-          <a href="https://www.chevrolet.ca/en">Chevrolet</a> - Founded in the year 1911, the Chevrolet Motor Division of General Motors Company is located in the USA
+          <a href="https://www.chevrolet.ca/en">Chevrolet</a>
         </li>
         <li class="list-group-item">
-          <a href="https://www.audi.ca/ca/web/en.html">Audi</a> - Founded in the year 1909, Audi AG is located in Germany
+          <a href="https://www.audi.ca/ca/web/en.html">Audi</a> 
         </li>
         <li class="list-group-item">
-          <a href="https://www.fiatcanada.com/en">Fiat</a> - Founded in the year 1899, Fiat Automobiles S.p.A. is located in Italy
+          <a href="https://www.fiatcanada.com/en">Fiat</a> 
         </li>
         <li class="list-group-item">
-          <a href="https://www.kia.ca/">Kia</a> - Founded in the year 1944, Kia Corporation is located in South Korea
+          <a href="https://www.kia.ca/">Kia</a> 
         </li>
         <li class="list-group-item">
-          <a href="https://www.dacia.co.uk/">Dacia</a> - Founded in the year 1966, S.C. Automobile Dacia S.A. is located in Romania
+          <a href="https://www.dacia.co.uk/">Dacia</a> 
         </li>
         <li class="list-group-item">
-          <a href="https://www.mini.ca/">MINI</a> - Founded in the year 1969, MINI is located in the UK
+          <a href="https://www.mini.ca/">MINI</a> 
         </li>
         <li class="list-group-item">
-          <a href="https://www.hyundaicanada.com/">Hyundai</a> - Founded in the year 1967, the Hyundai Motor Company is located in South Korea
+          <a href="https://www.hyundaicanada.com/">Hyundai</a> 
         </li>
       </ul>
       <p class="pt-3">Website made using:</p>
@@ -262,7 +257,7 @@
           <i class="bi bi-bootstrap"></i> <a href="https://getbootstrap.com/">Bootstrap</a> , 
           <a href="https://vuejs.org/">Vue</a> ,
           <a href="https://spring.io/projects/spring-boot">Spring Boot</a> ,
-          [2] <a href="https://www.kaggle.com/datasets/ander289386/cars-germany">Kaggle Car Data</a>
+            <a href="https://www.kaggle.com/datasets/ander289386/cars-germany">Kaggle Car Data</a> [2]
         </li>
       </ul>
     </div>
