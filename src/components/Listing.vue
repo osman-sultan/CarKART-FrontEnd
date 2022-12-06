@@ -112,10 +112,10 @@ import axios from 'axios';
         <h1 class="display-5 fw-bold lh-1 mb-3"> {{car.company.make}} {{car.model}}</h1>
         <p class="lead">
           <p>
-            This {{car.company.make}} vehicle is the best fit for you. The {{car.company.make}} {{car.model}} is the best option for all your travelling and driving needs. It has a beautifully shaped outer frame and catches the eyes of everyone around you.
+            This {{car.company.make}} vehicle is the best fit for you. The {{car.company.make}} {{car.model}} is the best possible selection to fulfill all your travelling and driving needs. Its specifications and exquisite design makes this vehicle unique.
           </p> 
           <p>
-            The {{car.company.make}} {{car.model}} has a mileage of {{car.mileage}} km. It is wrapped in {{car.colour}} colour. The vehicle's transmission is {{car.transmission}}. See below for more specificiation details.
+            The current mileage of the {{car.company.make}} {{car.model}} is {{car.mileage}} km. It is beautifully wrapped in {{car.colour}} colour. The vehicle's transmission is {{car.transmission}}. See below for more specificiation details.
           </p>
         </p>
         <div class="d-grid gap-3 d-md-flex justify-content-md-start">
