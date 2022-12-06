@@ -91,7 +91,7 @@
               <h3 class="card-title mb-3">Osman Sultan</h3>
               <h6 class="card-subtitle mb-2 text-muted">Project Manager <br>Full-Stack Lead</h6>
               <p class="card-text">
-                Hey guys! My favourite car is a Nissan Cube :)
+                Hey guys! My favourite car is a Ferrari Testarossa :)
               </p>
             </div>
             <div class="card-footer text-center">
