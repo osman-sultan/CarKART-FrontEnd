@@ -5,10 +5,10 @@ A straightforward marketplace to buy, sell, trade, and compare used and new auto
 Developed by a 7 Industrial Engineering majors from the University of Toronto. 
 
 FrontEnd Stack: 
--Vue3 (composition API)
--Vite
--Bootstrap5
--Axios
+- Vue3 (composition API)
+- Vite
+- Bootstrap5
+- Axios
 
 To view the backend please visit: [backend](https://github.com/osman-sultan/CarKART-BackEnd)
 
