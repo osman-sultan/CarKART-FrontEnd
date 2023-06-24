@@ -1,4 +1,4 @@
-# CarKart-FrontEnd
+# CarKart Frontend
 
 A straightforward marketplace to buy, sell, trade, and compare used and new automobiles. 
 ![Landing Page](images/carkart.png)
