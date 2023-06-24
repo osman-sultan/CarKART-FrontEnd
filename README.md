@@ -1,8 +1,16 @@
 # CarKart-FrontEnd
 
-MIE350 Group 7 Project Frontend repo
+A straightforward marketplace to buy, sell, trade, and compare used and new automobiles. 
 
-This template should help get you started developing with Vue 3 in Vite.
+Developed by a 7 Industrial Engineering majors from the University of Toronto. 
+
+FrontEnd Stack: 
+-Vue3 (composition API)
+-Vite
+-Bootstrap5
+-Axios
+
+To view the backend please visit: [backend](https://github.com/osman-sultan/CarKART-BackEnd)
 
 ## Recommended IDE Setup
 
@@ -13,6 +21,8 @@ This template should help get you started developing with Vue 3 in Vite.
 See [Vite Configuration Reference](https://vitejs.dev/config/).
 
 ## Project Setup
+
+***frontend will only be functional if you run the backend simultaneously!!***
 
 ```sh
 npm install
