@@ -1,6 +1,7 @@
 # CarKart-FrontEnd
 
 A straightforward marketplace to buy, sell, trade, and compare used and new automobiles. 
+![Landing Page](public/carkart.png)
 
 Developed by a 7 Industrial Engineering majors from the University of Toronto. 
 
